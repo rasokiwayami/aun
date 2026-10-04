@@ -4,6 +4,7 @@ import {mkdtemp,rm,mkdir,writeFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
 import http from 'node:http';
+import {spawn} from 'node:child_process';
 import {Vault} from '../src/core/vault.mjs';
 import {LIMITS} from '../src/core/schema.mjs';
 import {encryptBackup} from '../src/core/crypto.mjs';
@@ -118,7 +119,7 @@ test('an expired voice owner is stopped even when another browser stays unlocked
  await mkdir(path.join(mockRoot,'src'));await writeFile(path.join(mockRoot,'src/ui.html'),'<html></html>');
  const executable=path.join(mockRoot,'bin/VoiceBridge.app/Contents/MacOS/VoiceBridge');await mkdir(path.dirname(executable),{recursive:true});
  await writeFile(executable,`#!${process.execPath}\nprocess.stdout.write('{"type":"ready"}\\n');setInterval(()=>{},1000);process.on('SIGTERM',()=>process.exit());\n`,{mode:0o700});
- const {app,get,post,browser}=await appFixture(t,{root:mockRoot,sessionTtlMs:1000});const a=await browser();await post(a,'/api/vault/create',{passphrase:password});const b=await browser();await post(b,'/api/vault/unlock',{passphrase:password});
+ const {app,get,post,browser}=await appFixture(t,{root:mockRoot,sessionTtlMs:1000,voiceLauncher:()=>spawn(executable,[],{stdio:['ignore','pipe','pipe']})});const a=await browser();await post(a,'/api/vault/create',{passphrase:password});const b=await browser();await post(b,'/api/vault/unlock',{passphrase:password});
  const stream=await post(a,'/api/voice',{});assert.equal(stream.status,200);const reader=stream.body.getReader();assert((new TextDecoder()).decode((await reader.read()).value).includes('ready'));
  assert.equal((await post(b,'/api/stop-audio',{})).status,403);
  const finished=reader.read().then(x=>x.done);clock+=800;await get(b,'/api/record');clock+=400;await get(b,'/api/record');

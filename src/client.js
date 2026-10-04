@@ -14,7 +14,7 @@ const endWords = /^(?:今日はここまで|終わり|おわり|終了|やめる
 const safeNode = (tag, text = '', cls) => { const n = document.createElement(tag); n.textContent = text; if (cls) n.className = cls; return n; };
 const operation = () => crypto.randomUUID();
 const unlocked = () => Boolean(record && session?.vault?.unlocked);
-function status(text, thinking = false) { $('status').textContent = text; $('orb').classList.toggle('thinking', thinking); $('orb').hidden = !active && !thinking; }
+function status(text, thinking = false) { $('status').textContent = text; $('orb').classList.toggle('thinking', thinking); $('orb').hidden = (!active || paused) && !thinking; }
 function error(text, area = 'error') { $(area).textContent = text; }
 function show(id) { if (!$(id).open) $(id).showModal(); }
 function actionButton(label, fn, cls = '') { const b = safeNode('button', label, cls); b.type = 'button'; b.onclick = fn; return b; }
@@ -386,7 +386,7 @@ async function backupImport() {
   catch (e) { if (token === revision && unlocked()) error(e.message, 'backupError'); }
 }
 async function findLegacy() { error('', 'backupError'); const token = revision; try { const result = await api('/api/legacy'); if (token !== revision || !unlocked()) return; $('legacyFiles').replaceChildren(); if (!result.files?.length) $('legacyFiles').append(safeNode('p','以前の記録は見つかりませんでした。')); for (const f of result.files || []) { const row = safeNode('div','','card'); row.append(safeNode('p',`${f.label} · ${f.answers}件`),actionButton('コピーして取り込む',async()=>{if(await mutate('/api/legacy/import',{id:f.id},'backupError')) $('backupResult').textContent='取り込みました。元のファイルはそのままです。整理案は未確認として扱います。';})); $('legacyFiles').append(row); } } catch (e) { if (token === revision && unlocked()) error(e.message, 'backupError'); } }
-const voiceErrors = {speech_permission:'Macのシステム設定で、このアプリの音声認識を許可してください。',microphone_permission:'Macのシステム設定で、このアプリのマイクを許可してください。',on_device_unavailable:'このMacで日本語の音声認識を利用できません。文字で続けられます。',recognition_unavailable:'音声を認識できませんでした。文字で続けられます。',no_microphone:'マイクを確認してから、もう一度始めてください。'};
+const voiceErrors = {voice_unavailable:'音声入力を起動できませんでした。アプリを開き直してお試しください。',voice_start_timeout:'音声入力の起動が完了しませんでした。もう一度お試しください。',voice_terminated:'音声入力が終了しました。もう一度「話を再開」を押してください。',microphone_unavailable:'マイクを開始できませんでした。入力機器を確認してください。',speech_permission:'Macのシステム設定で、このアプリの音声認識を許可してください。',microphone_permission:'Macのシステム設定で、このアプリのマイクを許可してください。',on_device_unavailable:'このMacで日本語の音声認識を利用できません。文字で続けられます。',recognition_unavailable:'音声を認識できませんでした。文字で続けられます。',no_microphone:'マイクを確認してから、もう一度始めてください。'};
 function receiveTranscript(event, token) {
   if (token !== revision || !unlocked() || !active || paused || typeof event.text !== 'string') return;
   speechChunks.set(event.turn ?? 0, {text:event.text,final:event.final === true});
@@ -403,11 +403,11 @@ function receiveTranscript(event, token) {
 async function listen() {
   if (!unlocked() || !active || paused || busy || !session.capabilities?.voice) return;
   stopListening(); const token = revision, controller = new AbortController(); voiceAbort = controller;
-  speechPrefix = $('message').value.trim(); speechChunks = new Map(); speechEdited = false; speechFinal = false; status('聞いています。確認してから記録できます。');
+  speechPrefix = $('message').value.trim(); speechChunks = new Map(); speechEdited = false; speechFinal = false; status('マイクを準備しています…');
   try {
     const res = await fetch('/api/voice', {method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:'{}',signal:controller.signal});
     if (!res.ok) throw Error('マイクを開始できませんでした。文字でも続けられます。');
-    const reader = res.body.getReader(), decoder = new TextDecoder(); let pending = '';
+    const reader = res.body.getReader(), decoder = new TextDecoder(); let pending = '', ready = false;
     while (true) {
       const chunk = await reader.read(); if (chunk.done) break; if (token !== revision || controller.signal.aborted) return;
       pending += decoder.decode(chunk.value,{stream:true}); if (pending.length > 100000) throw Error('音声の受信を止めました。入力内容を確認してください。');
@@ -416,12 +416,13 @@ async function listen() {
         const line = pending.slice(0,index); pending = pending.slice(index+1); if (!line.trim()) continue;
         const event = JSON.parse(line); if (token !== revision || controller.signal.aborted) return;
         if (event.type === 'error') throw Error(voiceErrors[event.code] || '音声を開始できませんでした。文字でも続けられます。');
+        if (event.type === 'ready') { ready = true; status('聞いています'); }
         if (event.type === 'transcript') receiveTranscript(event,token);
       }
     }
-    if (!controller.signal.aborted && token === revision) { paused = true; status('音声を止めました。下書きを確認できます。'); showSpeechDraftHint(true); controls(); }
-  } catch (e) { if (controller.signal.aborted || token !== revision) return; paused = true; status('音声をいったん止めました'); error(e.message); $('composer').hidden = false; showSpeechDraftHint(true); controls(); }
-  finally { if (voiceAbort === controller) voiceAbort = null; }
+    if (!controller.signal.aborted && token === revision) throw Error(ready ? '音声入力が途切れました。もう一度「話を再開」を押してください。' : '音声入力を開始できませんでした。もう一度「話を再開」を押してください。');
+  } catch (e) { if (controller.signal.aborted || token !== revision) return; paused = true; status('音声入力を停止しました'); error(e.message); $('composer').hidden = false; showSpeechDraftHint(true); controls(); }
+  finally { controller.abort(); if (voiceAbort === controller) voiceAbort = null; }
 }
 async function speak(messageId) { if (!unlocked()) return; const controller = new AbortController(), token = revision; speakAbort = controller; try { await api('/api/speak',{messageId},{signal:controller.signal}); } catch { if (!controller.signal.aborted && token === revision) error('読み上げを再生できませんでした。画面で返答を確認できます。'); } finally { if (speakAbort === controller) speakAbort = null; } }
 async function setConsent(enabled) {

@@ -227,3 +227,13 @@ test('backup import accepts valid export sizes above 25 MiB and rejects files ov
 });
 test('main screen explains local mode and offers dialogue consent without silently enabling it',async()=>{const f=fixture({connected:true});await tick();assert.equal(f.get('consentHint').hidden,false);assert.match(f.get('consentHint').children[0].textContent,/自動の質問はオフ/);const button=f.get('consentHint').children.find(x=>x.tagName==='BUTTON');assert.equal(button.textContent,'対話をオンにする');button.onclick();assert.equal(f.get('consentDialog').open,true);assert.equal(f.calls.some(c=>c.path==='/api/consent'||c.path==='/api/interview'),false);});
 test('unavailable provider explains manual question navigation instead of offering unusable connection',async()=>{const f=fixture({handle:async path=>path==='/api/status'?{ok:true,json:async()=>({vault:{exists:true,unlocked:true},provider:{available:false,connected:false},capabilities:{voice:false},csrf:'test'})}:undefined});await tick();assert.match(f.get('consentHint').children[0].textContent,/別の問いへ/);assert.equal(f.get('consentHint').children.some(x=>x.tagName==='BUTTON'),false);});
+test('voice startup EOF is an error, never a normal stop or a claim that listening started',async()=>{
+ const f=fixture({voice:true,handle:async path=>path==='/api/voice'?{ok:true,body:{getReader:()=>({read:async()=>({done:true})})}}:undefined});await tick();
+ await f.run('active=true;listen()');assert.match(f.get('error').textContent,/音声入力を開始できませんでした/);assert.doesNotMatch(f.get('status').textContent,/下書きを確認/);assert.equal(f.run('paused'),true);
+});
+test('voice shows listening only after native readiness and keeps partial words on interruption',async()=>{
+ let release;const bytes=s=>new TextEncoder().encode(s);let step=0;
+ const f=fixture({voice:true,handle:async path=>path==='/api/voice'?{ok:true,body:{getReader:()=>({read:async()=>{if(step++===0)return new Promise(resolve=>release=resolve);if(step===2)return {done:false,value:bytes('{"type":"transcript","text":"合成の下書き","final":false}\n')};return {done:true}}})}}:undefined});await tick();
+ const listening=f.run('active=true;listen()');await tick();assert.match(f.get('status').textContent,/準備/);assert.doesNotMatch(f.get('status').textContent,/聞いています/);
+ release({done:false,value:bytes('{"type":"ready"}\n')});await listening;assert.equal(f.get('message').value,'合成の下書き');assert.match(f.get('error').textContent,/途切れ/);assert.equal(f.calls.some(c=>c.path==='/api/capture'),false);
+});

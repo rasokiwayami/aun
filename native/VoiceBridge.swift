@@ -1,9 +1,25 @@
 import Foundation
 import AVFoundation
 import Speech
+import Darwin
+
+// A LaunchServices app cannot inherit Node's stdout pipe. Connect before asking
+// for permission; loss of this private channel always ends microphone use.
+if let index=CommandLine.arguments.firstIndex(of:"--socket") {
+ guard CommandLine.arguments.indices.contains(index+1) else{exit(1)}
+ let socketPath=CommandLine.arguments[index+1]
+ var address=sockaddr_un();address.sun_family=sa_family_t(AF_UNIX)
+ let bytes=Array(socketPath.utf8CString)
+ guard bytes.count<=MemoryLayout.size(ofValue:address.sun_path) else{exit(1)}
+ withUnsafeMutableBytes(of:&address.sun_path){target in bytes.withUnsafeBytes{target.copyBytes(from:$0)}}
+ let fd=socket(AF_UNIX,SOCK_STREAM,0);guard fd>=0 else{exit(1)}
+ let connected=withUnsafePointer(to:&address){pointer in pointer.withMemoryRebound(to:sockaddr.self,capacity:1){Darwin.connect(fd,$0,socklen_t(MemoryLayout<sockaddr_un>.size))}}
+ guard connected==0,dup2(fd,STDOUT_FILENO)>=0 else{exit(1)}
+ DispatchQueue.global().async{var byte:UInt8=0;_ = Darwin.read(fd,&byte,1);exit(0)}
+}
 func emit(_ value:[String:Any]) {if let data=try? JSONSerialization.data(withJSONObject:value),let s=String(data:data,encoding:.utf8){print(s);fflush(stdout)}}
 let recognizer=SFSpeechRecognizer(locale:Locale(identifier:"ja-JP"))
-if CommandLine.arguments.contains("inspect") {emit(["available":recognizer != nil,"onDevice":recognizer?.supportsOnDeviceRecognition ?? false]);exit(0)}
+if CommandLine.arguments.contains("inspect") {emit(["type":"inspection","available":recognizer != nil,"onDevice":recognizer?.supportsOnDeviceRecognition ?? false,"bundleId":Bundle.main.bundleIdentifier ?? "","microphonePermission":AVCaptureDevice.authorizationStatus(for:.audio).rawValue,"speechPermission":SFSpeechRecognizer.authorizationStatus().rawValue]);exit(0)}
 let engine=AVAudioEngine();var speechRequest:SFSpeechAudioBufferRecognitionRequest?;var speechTask:SFSpeechRecognitionTask?;var stopped=false;var restarting=false;var turn=0
 func fail(_ code:String) -> Never {emit(["type":"error","code":code]);exit(1)}
 func beginRecognition(){
