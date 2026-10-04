@@ -1,0 +1,22 @@
+{
+  "name": "hitotsuzutsu",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "build": "node scripts/build-local.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "setup:siwc": "node scripts/setup-siwc.mjs",
+    "check:public": "node scripts/check-public.mjs"
+  },
+  "dependencies": {
+    "jose": "6.1.0",
+    "proper-lockfile": "4.1.2"
+  },
+  "description": "One question at a time: a local personal-context interview prototype.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=26"
+  }
+}
