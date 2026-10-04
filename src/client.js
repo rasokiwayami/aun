@@ -14,7 +14,7 @@ const endWords = /^(?:今日はここまで|終わり|おわり|終了|やめる
 const safeNode = (tag, text = '', cls) => { const n = document.createElement(tag); n.textContent = text; if (cls) n.className = cls; return n; };
 const operation = () => crypto.randomUUID();
 const unlocked = () => Boolean(record && session?.vault?.unlocked);
-function status(text, thinking = false) { $('status').textContent = text; $('orb').classList.toggle('thinking', thinking); }
+function status(text, thinking = false) { $('status').textContent = text; $('orb').classList.toggle('thinking', thinking); $('orb').hidden = !active && !thinking; }
 function error(text, area = 'error') { $(area).textContent = text; }
 function show(id) { if (!$(id).open) $(id).showModal(); }
 function actionButton(label, fn, cls = '') { const b = safeNode('button', label, cls); b.type = 'button'; b.onclick = fn; return b; }
@@ -42,7 +42,7 @@ function controls() {
   $('pause').hidden = !open || !active; $('finish').hidden = !open || resting; $('resumeSession').hidden = !open || !resting; $('resumeSession').disabled = busy;
   $('pauseDraftOffer').hidden = !open || !resting || !$('message').value.trim() || pausedDraftSaved;
   $('pause').textContent = paused ? '話を再開' : '少し待って';
-  $('modeLinks').hidden = !open || resting; $('transcript').hidden = !open;
+  $('modeLinks').hidden = !open || resting; $('textMode').hidden = !active; $('transcript').hidden = !open || !record.messages?.length;
   for (const id of ['start','send','skip','refuse','applySettings','saveEdit','previewPack']) $(id).disabled = busy || !open;
   for (const id of ['send','skip','refuse']) $(id).disabled = busy || !open || resting;
   $('unlockedSettings').hidden = !open; $('lock').disabled = !open; $('backupButton').disabled = !open;
@@ -54,13 +54,13 @@ function controls() {
   $('consentHint').hidden = !open;
   $('consentHint').replaceChildren();
   if (open && record.consent?.model) {
-    $('consentHint').append(safeNode('span', provider.connected ? '記録後、この発言と利用を許可したメモをChatGPTへ送ります。' : 'ChatGPTは未接続です。今はこのMacだけに記録します。'));
-    $('consentHint').append(actionButton('詳しく', () => show('consentDialog'), 'quiet'));
+    $('consentHint').append(safeNode('span', provider.connected ? '回答と許可したメモをChatGPTへ送信' : 'ChatGPT未接続 · このMacに記録'));
+    $('consentHint').append(actionButton('送信設定', () => show('consentDialog'), 'quiet'));
   } else if (open && provider.available) {
-    $('consentHint').append(safeNode('span','今は端末内で記録します。回答に合わせて次の質問をしてもらうには、ChatGPTへの送信をオンにしてください。'));
+    $('consentHint').append(safeNode('span','記録のみ · 自動の質問はオフ'));
     $('consentHint').append(actionButton(provider.connected ? '対話をオンにする' : 'ChatGPTに接続する', () => provider.connected ? show('consentDialog') : openSettings(), 'quiet'));
   } else if (open) {
-    $('consentHint').append(safeNode('span','この環境では端末内に記録できます。次の質問は「別の問いへ」で選べます。'));
+    $('consentHint').append(safeNode('span','記録のみ · 質問は「別の問いへ」から'));
   }
 }
 function drawRecord() {
@@ -138,7 +138,7 @@ async function refresh() {
   const next = await api('/api/status'); if (token !== revision) return;
   session = next; csrf = next.csrf;
   if (next.topicChoices?.length) { $('topic').replaceChildren(); for (const t of next.topicChoices) { const o = safeNode('option', t.label); o.value = t.id; $('topic').append(o); } }
-  if (next.vault?.unlocked) { const result = await api('/api/record'); if (token !== revision) return; applyRecord(result); $('composer').hidden = false; status(record.inquiry?.paused ? '質問の位置と保存済みの記録が残っています。続きから再開できます。' : '準備できました'); await restoreDraft(token); }
+  if (next.vault?.unlocked) { const result = await api('/api/record'); if (token !== revision) return; applyRecord(result); $('composer').hidden = false; status(record.inquiry?.paused ? 'ここまで保存しました。' : ''); await restoreDraft(token); }
   else { clearPrivate(); controls(); openVault(); }
 }
 async function restoreDraft(token) {
@@ -163,7 +163,7 @@ async function openWithPassphrase(e) {
   const body = recoverMode ? {recoveryCode,newPassphrase:passphrase} : {passphrase,...(!session.vault.exists ? {recovery:$('wantRecovery').checked} : {})};
   $('passphrase').value = ''; $('recoveryInput').value = ''; $('vaultSubmit').disabled = true; busy = true; controls();
   try {
-    const result = await api(path, body); if (token !== revision) return; session.vault = {exists:true,unlocked:true}; currentSessionTaskId = operation(); applyRecord(result.record); $('vaultDialog').close(); $('composer').hidden = false; status(record.inquiry?.paused ? '質問の位置と保存済みの記録が残っています。続きから再開できます。' : '準備できました');
+    const result = await api(path, body); if (token !== revision) return; session.vault = {exists:true,unlocked:true}; currentSessionTaskId = operation(); applyRecord(result.record); $('vaultDialog').close(); $('composer').hidden = false; status(record.inquiry?.paused ? 'ここまで保存しました。' : '');
     if (result.recoveryCode) { $('recoveryCode').textContent = result.recoveryCode; show('recoveryDialog'); }
     await restoreDraft(token);
   } catch (e) { if (token === revision) error(e.message, 'vaultError'); } finally { $('vaultSubmit').disabled = false; if (token === revision) { busy = false; controls(); } }
@@ -200,18 +200,18 @@ async function finish() {
     if (token !== revision) return;
     const result = await api('/api/navigate',{operationId:operation(),action:'pause'},{signal:controller.signal});
     if (token !== revision) return; applyRecord(result.record); $('caption').textContent = '';
-    status('今日はここまで。質問の位置と、保存済みの回答・整理案・メモを残しました。'); showSpeechDraftHint(true);
+    status('今日はここまで。続きはこの質問から。'); showSpeechDraftHint(true);
   } catch (e) { if (token === revision && !controller.signal.aborted) { error(e.message); status('停止しました。中断位置の保存は確認できませんでした。'); } }
   finally { if (chatAbort === controller) { chatAbort = null; busy = false; controls(); } }
 }
 async function resumeSession() {
-  if (await mutate('/api/navigate',{action:'resume'})) { $('composer').hidden = false; status('保存したところから、あなたのペースでどうぞ。'); controls(); }
+  if (await mutate('/api/navigate',{action:'resume'})) { $('composer').hidden = false; status(''); controls(); }
 }
 async function savePausedDraft() {
   if (!unlocked() || busy || !$('message').value.trim()) return;
   if (!record.settings?.draftPersistence && !await mutate('/api/settings',{draftPersistence:true})) return;
   const token = revision;
-  try { await api('/api/draft',{text:$('message').value}); if (token !== revision) return; pausedDraftSaved = true; status('下書きも暗号化して24時間保存しました。'); controls(); }
+  try { await api('/api/draft',{text:$('message').value}); if (token !== revision) return; pausedDraftSaved = true; status('下書きを24時間保存しました。'); controls(); }
   catch (e) { if (token === revision) error(e.message); }
 }
 function showSpeechDraftHint(interrupted = false) {
@@ -286,12 +286,12 @@ async function captureDocument(e) {
 }
 async function runInterview() {
   if (busy || !unlocked() || record.inquiry?.paused || !pendingInterview || !record.consent?.model || !session.provider?.connected) return;
-  const token = revision, request = {...pendingInterview}, controller = new AbortController(); chatAbort = controller; busy = true; controls(); $('modelPreview').close(); status('記録済みの発言をもとに考えています', true);
+  const token = revision, request = {...pendingInterview}, controller = new AbortController(); chatAbort = controller; busy = true; controls(); $('modelPreview').close(); status('次の質問を考えています', true);
   try {
     const result = await api('/api/interview', request, {signal:controller.signal}); if (token !== revision) return;
     pendingInterview = null; applyRecord(result.record); $('caption').textContent = result.answer?.reply || '';
     if (result.answer?.pause) { active = false; paused = false; status('ここで一区切り。続きは、いつでも。'); }
-    else status('保存しました。続きは、あなたのペースで。');
+    else status('保存しました。');
     if ($('readAloud').checked && active && !paused && result.assistantMessageId) await speak(result.assistantMessageId);
   } catch (e) { if (controller.signal.aborted || token !== revision) return; error(`${e.message}\n発言はこのMacに保存済みです。`); $('error').append(actionButton('保存済みの発言から続ける', () => show('modelPreview'), 'quiet')); status('発言は保存済みです'); }
   finally { if (chatAbort === controller) { chatAbort = null; busy = false; if (active) paused = true; controls(); } }
@@ -304,7 +304,7 @@ async function mutate(path, body, area = 'error') {
   catch (e) { if (!controller.signal.aborted && token === revision) error(e.message, area); return false; }
   finally { if (chatAbort === controller) { chatAbort = null; busy = false; controls(); } }
 }
-async function navigate(action, selectedTopic) { const done = await mutate('/api/navigate', {action,...(selectedTopic ? {topic:selectedTopic} : {}),questionId:record?.questionId}); if (done) status(action === 'refuse' ? 'この話題は、再開を選ぶまで控えます。' : '答えたいところから、どうぞ。'); }
+async function navigate(action, selectedTopic) { const done = await mutate('/api/navigate', {action,...(selectedTopic ? {topic:selectedTopic} : {}),questionId:record?.questionId}); if (done) status(action === 'refuse' ? 'この話題は、再開を選ぶまで控えます。' : ''); }
 async function reviewAssertion(a, decision) { return mutate('/api/review', {id:a.id,expectedRevision:a.revision,decision,...(decision === 'task_only' ? {taskId:currentSessionTaskId,expiresAt:new Date(Date.now()+60*60*1000).toISOString()} : {})}, 'historyError'); }
 function confirmAction(title, description, callback) { $('confirmTitle').textContent = title; $('confirmText').textContent = description; error('', 'confirmError'); confirmCallback = callback; show('confirmDialog'); }
 function localDate(value) { if (!value) return ''; const date = new Date(value); if (Number.isNaN(date.getTime())) return ''; return new Date(date.getTime()-date.getTimezoneOffset()*60000).toISOString().slice(0,16); }
@@ -496,7 +496,7 @@ $('pause').onclick = pauseConversation;
 $('finish').onclick = finish;
 $('resumeSession').onclick = resumeSession;
 $('savePausedDraft').onclick = savePausedDraft;
-$('textMode').onclick = async () => { cancelWork(); active = false; paused = false; await stopAudio(); $('composer').hidden = false; controls(); status('文字で、そのままどうぞ。'); $('message').focus(); };
+$('textMode').onclick = async () => { cancelWork(); active = false; paused = false; await stopAudio(); $('composer').hidden = false; controls(); status(''); $('message').focus(); };
 $('composer').onsubmit = e => { e.preventDefault(); submit($('message').value); };
 $('message').onkeydown = e => { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey) && !e.isComposing) { e.preventDefault(); $('composer').requestSubmit(); } };
 $('message').oninput = saveDraftLater;
