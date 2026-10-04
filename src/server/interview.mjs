@@ -21,6 +21,18 @@ export function parseAnswer(raw){
 export class InterviewService {
   constructor(vault,provider){this.vault=vault;this.provider=provider;this.running=new Map()}
   cancelAll(){for(const c of this.running.values())c.abort();this.running.clear()}
+  ensureOpening(){
+    const state=this.vault.read();
+    if(state.conversation.questionId||state.inquiry.version===1||state.inquiry.paused)return;
+    this.vault.mutate(randomUUID(),{type:'navigation',action:'initialize'},s=>{
+      if(s.conversation.questionId||s.inquiry.version===1||s.inquiry.paused)return {};
+      const inquiry=createInquiry(),question=nextQuestion({inquiry,topic:'free',purpose:'self_reflection'});
+      requireThat(question,'question_unavailable',500);
+      s.inquiry=recordQuestion(inquiry,question.id);
+      s.conversation={...s.conversation,questionId:question.id,question:question.basic_wording,topic:'free'};
+      return {questionId:question.id};
+    });
+  }
   navigate(input){
     const topic=normalizeTopic(input.topic);if(input.topic!==undefined)requireThat(topic,'invalid_topic');
     return this.vault.mutate(input.operationId,{...input,type:'navigation'},s=>{

@@ -51,11 +51,16 @@ function controls() {
   $('accountInfo').textContent = provider.connected ? 'ChatGPTに接続済み · ChatGPTの利用枠を使用' : provider.available ? '未接続でも、記録・編集・書き出しができます。' : 'この環境ではChatGPT接続を利用できません。端末内の機能は使えます。';
   $('consentControls').hidden = !open;
   $('consentState').textContent = record?.consent?.model ? '会話と整理のための送信：オン' : '会話と整理のための送信：オフ';
-  $('consentHint').hidden = !open || !record?.consent?.model;
+  $('consentHint').hidden = !open;
   $('consentHint').replaceChildren();
   if (open && record.consent?.model) {
     $('consentHint').append(safeNode('span', provider.connected ? '記録後、この発言と利用を許可したメモをChatGPTへ送ります。' : 'ChatGPTは未接続です。今はこのMacだけに記録します。'));
     $('consentHint').append(actionButton('詳しく', () => show('consentDialog'), 'quiet'));
+  } else if (open && provider.available) {
+    $('consentHint').append(safeNode('span','今は端末内で記録します。回答に合わせて次の質問をしてもらうには、ChatGPTへの送信をオンにしてください。'));
+    $('consentHint').append(actionButton(provider.connected ? '対話をオンにする' : 'ChatGPTに接続する', () => provider.connected ? show('consentDialog') : openSettings(), 'quiet'));
+  } else if (open) {
+    $('consentHint').append(safeNode('span','この環境では端末内に記録できます。次の質問は「別の問いへ」で選べます。'));
   }
 }
 function drawRecord() {

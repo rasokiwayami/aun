@@ -35,7 +35,7 @@ export function createApp({root,dataDir,provider=new ChatGPTProvider(root,dataDi
  function needVault(s,generation){ensureVault(s,generation);s.seen=Date.now()}
  async function exclusive(fn){requireThat(!cryptoBusy,'busy',409);cryptoBusy=true;try{return await fn()}finally{cryptoBusy=false}}
  function rate(){const now=Date.now();while(attempts.length&&attempts[0]<now-60000)attempts.shift();requireThat(attempts.length<8,'rate_limit',429);attempts.push(now)}
- function record(result={}){return {...result,record:vault.view()}}
+ function record(result={}){interview.ensureOpening();return {...result,record:vault.view()}}
  const server=http.createServer(async(req,res)=>{
   try{
    requireThat(req.headers.host===new URL(origin).host,'invalid_host',403);sweep();const url=new URL(req.url,origin);let browser=session(req);
@@ -62,7 +62,7 @@ export function createApp({root,dataDir,provider=new ChatGPTProvider(root,dataDi
    if(url.pathname==='/api/auth/cancel'&&b){reply(res,200,await provider.cancel());return}
    if(url.pathname==='/api/auth/disconnect'&&b){cancel();if(vault.unlocked)vault.setConsent(false);lock();reply(res,200,await provider.disconnect());return}
    needVault(browser,generation);
-   if(url.pathname==='/api/record'&&!b){reply(res,200,vault.view());return}
+   if(url.pathname==='/api/record'&&!b){reply(res,200,record().record);return}
    if(url.pathname==='/api/models'&&!b){const models=await provider.models();ensureVault(browser,generation);reply(res,200,models);return}
    if(url.pathname==='/api/legacy'&&!b){const files=await legacy.list();ensureVault(browser,generation);reply(res,200,{files});return}
    if(url.pathname==='/api/draft'&&!b){const d=vault.read().draft;reply(res,200,{text:d&&Date.parse(d.expiresAt)>Date.now()?d.text:''});return}
