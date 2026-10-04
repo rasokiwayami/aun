@@ -1,54 +1,125 @@
-# ひとつずつ · hitotsuzutsu
+# AUN · 阿吽
 
-一つずつ話しながら、自分の好みや考え、判断の条件を残すローカルアプリです。話した言葉とAIの整理案を分け、使う前に確かめて直せます。
+### Forge an AI that gets you.
 
-保管庫を開くと、最初の具体的な質問を自動で表示します。ChatGPTへの接続と送信をオンにすると、回答に合わせて次の質問が届きます。送信がオフの間は端末内への記録ができ、「別の問いへ」で次へ進めます。
+**Stop introducing yourself to AI.**
 
-すべての質問に答える必要はありません。「今日はここまで」で区切り、次回は同じ質問から再開できます。回答・整理案・確認したメモは操作ごとに保存します。書きかけは、保存を選んだ場合だけ暗号化して24時間残します。
+Your taste. Your limits. The reasons behind your decisions. The things you are tired of explaining.
 
-## 始める
+You should not need a perfect prompt to be understood.
 
-コア機能にはNode.js 26以上が必要です。ChatGPTへの接続、認証SDK、Swiftは、保存・編集・書き出しには不要です。
+AUN is a local personal-context forge: talk through what matters, review what the AI thinks it learned, and carry the context you choose into your next conversation.
+
+**Your story. Your rules. Your next AI.**
+
+[日本語](README.ja.md) · [Get started](#get-started) · [Under the hood](#under-the-hood)
+
+## Understanding should survive a new chat
+
+In Japanese, *aun no kokyū* — 阿吽の呼吸 — describes being so in sync that little needs to be said. Shared rhythm. Unspoken understanding.
+
+That is the ambition: an AI that knows the shape of your thinking before you finish explaining it. Something that feels less like briefing a stranger and more like picking up a conversation with someone who knows you.
+
+We want “you get me” to become the starting point.
+
+Today, AUN builds the context that could make that possible: preferences, priorities, boundaries, and the conditions that change your answer. You inspect that context, change it, and decide where it goes.
+
+## Give your next AI a head start
+
+*Illustrative example — not a recorded conversation or a generated result:*
+
+> **You:** “For a weekend away, I'd rather stay somewhere quiet than near the nightlife. Unless I'm going with friends.”
+>
+> **A note to review:** Prefers quiet accommodation for solo weekend trips. Group trips need a separate check.
+>
+> **Reuse:** Include the approved note in a travel context pack, then paste it into the AI you want to plan with.
+
+One answer becomes something you can use again. The exception stays attached. You decide whether the interpretation fits.
+
+### Let the questions come to you
+
+Open your vault and a concrete first question is waiting. Turn on the optional ChatGPT connection and sending consent for questions that respond to your answers. The 300-question bank provides starting points; you do not have to complete it. Skip, pause, and return to the same question later.
+
+### Keep the final say on who you are
+
+Your words and the AI's interpretations stay separate. Review a proposed note, defer it, or accept it for one task. Edit saved notes and trace them back to their sources. Correcting a source invalidates dependent notes so an old interpretation does not quietly keep speaking for you.
+
+### Take your context with you
+
+Choose a purpose, inspect the selected notes, and export Markdown or JSON. A pack can carry relevant preferences into another AI conversation without making you rebuild the whole introduction. Export is manual; AUN does not write to ChatGPT's built-in memory.
+
+## Get started
+
+**Early prototype.** The interface is currently Japanese and uses the earlier name, **ひとつずつ**. The repository slug remains `hitotsuzutsu`.
+
+The local core needs **Node.js 26+**. Recording, reviewing, editing, and exporting work without a ChatGPT connection or native build.
 
 ```sh
+git clone https://github.com/rasokiwayami/hitotsuzutsu.git
+cd hitotsuzutsu
 npm ci
 npm start
 ```
 
-[ローカル画面](http://127.0.0.1:43127/)を開き、保管庫のパスフレーズを設定します。復旧コードを作る場合は別の安全な場所に保管してください。パスフレーズと復旧材料を両方失うと復旧できません。
+Open [localhost:43127](http://127.0.0.1:43127/) and create a vault passphrase. If you create a recovery code, keep it somewhere safe and separate. Losing both the passphrase and recovery material means losing access.
 
-- 文字や音声を本人が送信すると、先に端末へ保存します。ChatGPTへの送信は接続・同意がある場合だけです。
-- 「記録」から原文を直したり削除したりできます。`.txt`／`.md`は内容と書き手を確認して取り込みます。
-- 「整理案」で必要な項目だけ採用・保留・今回だけの採用を選べます。未確認のまま終えて構いません。
-- 「使えるメモ」で用途、条件、期限、AI利用、対外開示を設定します。「用途に合わせて使う」で選ばれた内容を確認し、コピーやファイルへ書き出します。
-- 「設定」からロック、暗号化バックアップ、復元、旧版記録の取り込みを行います。旧ファイルは自動移行・削除しません。
+1. Answer the opening question. With cloud sending off, answers stay local; use **別の問いへ** to move on.
+2. Review proposed interpretations under **整理案** when using the optional AI connection. You can also create notes directly.
+3. Open **使えるメモ → 用途に合わせて使う** to preview and export a context pack.
+4. Choose **今日はここまで** to pause. Saved answers and your question position remain. Saving an unfinished draft is optional and lasts 24 hours.
 
-## 任意のChatGPT接続とMac音声
+### Optional ChatGPT connection and Mac voice
 
-認証には別ライセンスのDevKitを使用します。[利用条件](LICENSES/README.md)に合う場合だけ取得してください。既に取得済みの場合は再取得不要です。
+The optional sign-in DevKit has a separate **noncommercial license**. Read the [dependency and service terms](LICENSES/README.md) before installing it; the core's MIT license does not override them.
+
+On macOS with Xcode Command Line Tools:
 
 ```sh
 npm run setup:siwc -- --accept-noncommercial
 npm run build
 ```
 
-macOSとXcode Command Line Toolsが必要です。サインインと利用枠の許可を画面から行います。対象モデル・アカウント・利用枠はサービス側の条件に依存します。既存のChatGPTの会話やメモリは取得しません。マイクは本人の操作で開始し、文字起こしはMac内で行います。認識途中の文を自動送信しません。自動送信を選択した場合も認識確定を待ちます。
+Connect through the app and enable sending when you want adaptive questions and proposed notes. Access depends on account eligibility and service limits. AUN does not import existing ChatGPT conversations or memories.
 
-## 保存と範囲
+Mac voice uses on-device Japanese speech recognition. Start the microphone yourself; partial recognition stays a draft. Microphone startup and shutdown have been checked on a real Mac; transcription accuracy and a complete spoken conversation remain unverified.
 
-正本は `.local/vault/vault.sqlite` に暗号化して保存します。質問位置や保留・拒否も保存対象です。サービスへのサインインと保管庫の鍵は別です。初期設定では外部ツールへ質問本文を渡しません。
+## Your memory needs an off switch. And an edit button.
 
-AIの案は、引用が一致しても意味まで正しいとは限りません。通常利用に入れる前に本人が選んで確認します。出力時は用途・場面・期限・許可を検査し、判断できない条件や自由文の例外を含むメモは除外します。出力は情報資料であり、メール送信などの権限ではありません。
+The vault is encrypted locally. Cloud inference is optional and requires consent; when enabled, it sends your current answer and selected permitted context to the provider. AUN is not an entirely offline AI.
 
-書き出したコピーや既にサービスへ送った内容は、このアプリから回収できません。削除はアプリの現行データと依存物に適用し、古い独立バックアップやOSのスナップショットまで消すものではありません。[データ保護の詳細](SECURITY.md)を参照してください。
+Notes can carry purposes, conditions, expiry, and permissions for AI use and external disclosure. You can correct or delete them. Exported copies and information already sent to a provider cannot be recalled by AUN. Independent backups remain independent copies.
 
-## 検証と設計
+Read the [data protection model](SECURITY.md) for encryption, recovery, deletion, and the limits of protection on a compromised device.
+
+## Under the hood
+
+```text
+your words → source record → proposed interpretation → your review
+                                                           ↓
+                                      purpose + conditions + permissions
+                                                           ↓
+                                             Markdown / JSON context pack
+```
+
+The engineering principle is simple: **a model's guess is not your identity.**
+
+AUN keeps source evidence, interpretation, confirmation, and action permission separate. Its local core uses encrypted SQLite storage; the optional provider adapter handles conversation. A context pack supplies information, not permission to act on your behalf.
+
+- [Implementation and limits](docs/CURRENT_STATE.md)
+- [Acceptance criteria and verification scope](docs/ACCEPTANCE.md)
+- [Question bank provenance](docs/question-bank-provenance.md)
+
+For development:
 
 ```sh
 npm test
 npm run check:public
 ```
 
-[実装と制約](docs/CURRENT_STATE.md)、[52件の受け入れ条件と検証範囲](docs/ACCEPTANCE.md)、[300問の出典・対応付け](docs/question-bank-provenance.md)を参照してください。合成データの検査は、長期利用の効果、全質問の意味的妥当性、実マイクや全アカウントでの動作を保証しません。
+Long-term reductions in explanation effort and interpretation errors have not yet been established. The ambition is shared understanding; the current implementation is an inspectable prototype for building and reusing context.
 
-本体は[MIT](LICENSE)。任意DevKitと依存ライブラリには別の条件が適用されます。名前と紹介文は暫定です。
+Core code: [MIT](LICENSE). Optional DevKit and dependencies: [separate terms](LICENSES/README.md).
+
+---
+
+**AUN · Less briefing. More understanding.**
