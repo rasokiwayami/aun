@@ -50,13 +50,13 @@ AUNは、あなたを理解するための文脈を鍛える、ローカルア�
 
 ## 始める
 
-**初期プロトタイプです。** 現在の画面は日本語で、旧名称の**ひとつずつ**を表示します。リポジトリ名は `hitotsuzutsu` です。
+**初期プロトタイプです。** 現在の画面は日本語で、旧名称の**ひとつずつ**を表示します。
 
 ローカルの基本機能には **Node.js 26以上**が必要です。記録・確認・編集・書き出しには、ChatGPT接続やネイティブビルドは不要です。
 
 ```sh
-git clone https://github.com/rasokiwayami/hitotsuzutsu.git
-cd hitotsuzutsu
+git clone https://github.com/rasokiwayami/aun.git
+cd aun
 npm ci
 npm start
 ```

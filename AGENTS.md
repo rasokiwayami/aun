@@ -1,4 +1,4 @@
-# Working on hitotsuzutsu
+# Working on AUN
 
 This repository is an early, local personal-context interview prototype. Read `docs/CURRENT_STATE.md` before describing its capabilities and `docs/DESIGN_REQUEST.md` before proposing the broader design.
 

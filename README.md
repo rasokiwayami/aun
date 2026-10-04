@@ -50,13 +50,13 @@ Choose a purpose, inspect the selected notes, and export Markdown or JSON. A pac
 
 ## Get started
 
-**Early prototype.** The interface is currently Japanese and uses the earlier name, **ひとつずつ**. The repository slug remains `hitotsuzutsu`.
+**Early prototype.** The interface is currently Japanese and uses the earlier name, **ひとつずつ**.
 
 The local core needs **Node.js 26+**. Recording, reviewing, editing, and exporting work without a ChatGPT connection or native build.
 
 ```sh
-git clone https://github.com/rasokiwayami/hitotsuzutsu.git
-cd hitotsuzutsu
+git clone https://github.com/rasokiwayami/aun.git
+cd aun
 npm ci
 npm start
 ```
