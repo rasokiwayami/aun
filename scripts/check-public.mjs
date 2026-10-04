@@ -18,15 +18,16 @@ export function inspectPublicFile(name, content) {
 
 export function checkPublic(root) {
   const names = [...new Set(execFileSync('git', ['ls-files', '-z', '--cached', '--others', '--exclude-standard'], { cwd: root, encoding: 'utf8' }).split('\0').filter(Boolean))].sort();
-  const findings = [];
+  const findings = [];let inspected=0;
   for (const name of names) {
     const filename = path.join(root, name);
-    const stat = lstatSync(filename);
+    let stat;try { stat = lstatSync(filename); } catch (e) { if (e.code === 'ENOENT') continue; throw e; }
+    inspected++;
     if (!stat.isFile()) { findings.push({ path: name, rule: 'non-regular-file' }); continue; }
     if (stat.size > 1_000_000) { findings.push({ path: name, rule: 'unexpected-large-file' }); continue; }
     for (const rule of inspectPublicFile(name, readFileSync(filename, 'utf8'))) findings.push({ path: name, rule });
   }
-  return { files: names.length, findings };
+  return { files: inspected, findings };
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const result = checkPublic(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'));

@@ -1,0 +1,5635 @@
+{
+  "schema": "hitotsuzutsu.question-goals/1.0",
+  "policy": "Explicit editorial mapping; global goal budgets deliberately stricter than scope-specific budgets. Semantics require human evaluation.",
+  "topics": {
+    "SUP": {
+      "label": "利用目的と対話の負担",
+      "kind": "category"
+    },
+    "GOA": {
+      "label": "自由・目的・望む生き方",
+      "kind": "category"
+    },
+    "VAL": {
+      "label": "価値の衝突と線引き",
+      "kind": "category"
+    },
+    "ETH": {
+      "label": "思想・社会・他者への責任",
+      "kind": "category"
+    },
+    "DEC": {
+      "label": "意思決定と比較",
+      "kind": "category"
+    },
+    "UNC": {
+      "label": "不確実性・根拠・情報の扱い",
+      "kind": "category"
+    },
+    "LEA": {
+      "label": "学習と理解",
+      "kind": "category"
+    },
+    "RES": {
+      "label": "研究・探究・調べる活動",
+      "kind": "category"
+    },
+    "WOR": {
+      "label": "仕事・役割・活動の受諾",
+      "kind": "category"
+    },
+    "LIF": {
+      "label": "生活・休息・実行可能性",
+      "kind": "category"
+    },
+    "MON": {
+      "label": "お金・時間・道具などの資源",
+      "kind": "category"
+    },
+    "REL": {
+      "label": "対人関係・距離・共同性",
+      "kind": "category"
+    },
+    "COM": {
+      "label": "文章・連絡・自己表現",
+      "kind": "category"
+    },
+    "CRE": {
+      "label": "創作・制作・自分の表現",
+      "kind": "category"
+    },
+    "FUN": {
+      "label": "娯楽・文化・楽しむ体験",
+      "kind": "category"
+    },
+    "AES": {
+      "label": "美意識・見た目・感覚",
+      "kind": "category"
+    },
+    "AID": {
+      "label": "AIへの委任と関与の境界",
+      "kind": "category"
+    },
+    "PRI": {
+      "label": "情報の利用・共有・目的の境界",
+      "kind": "category"
+    },
+    "CHG": {
+      "label": "変化・訂正・本人確認",
+      "kind": "category"
+    },
+    "NOW": {
+      "label": "現在の状態・予定・変動する条件",
+      "kind": "category"
+    },
+    "ACC": {
+      "label": "言語・アクセス・支援の受け取り方",
+      "kind": "category"
+    },
+    "DAT": {
+      "label": "資料・記録・保有・持ち出し",
+      "kind": "category"
+    },
+    "disclosure": {
+      "label": "情報の開示",
+      "kind": "semantic"
+    },
+    "local-processing": {
+      "label": "外部処理",
+      "kind": "semantic"
+    },
+    "recording": {
+      "label": "記録する範囲",
+      "kind": "semantic"
+    },
+    "question-boundary": {
+      "label": "話題と停止",
+      "kind": "semantic"
+    },
+    "capacity": {
+      "label": "引き受ける余裕",
+      "kind": "semantic"
+    },
+    "time-boundary": {
+      "label": "時間の保護",
+      "kind": "semantic"
+    },
+    "agency": {
+      "label": "本人に残す関与",
+      "kind": "semantic"
+    },
+    "judgment-boundary": {
+      "label": "選択の制約",
+      "kind": "semantic"
+    },
+    "value-conflict": {
+      "label": "価値の衝突",
+      "kind": "semantic"
+    },
+    "review": {
+      "label": "確認と訂正の方法",
+      "kind": "semantic"
+    },
+    "current-policy": {
+      "label": "方針の変化",
+      "kind": "semantic"
+    },
+    "uncertainty": {
+      "label": "不明な条件",
+      "kind": "semantic"
+    },
+    "evidence": {
+      "label": "判断の根拠",
+      "kind": "semantic"
+    },
+    "resource-cost": {
+      "label": "使える資源と負担",
+      "kind": "semantic"
+    },
+    "communication": {
+      "label": "文章と伝え方",
+      "kind": "semantic"
+    },
+    "relationship": {
+      "label": "関わりの境界",
+      "kind": "semantic"
+    },
+    "preparation": {
+      "label": "実行の準備",
+      "kind": "semantic"
+    },
+    "learning": {
+      "label": "学ぶ方法",
+      "kind": "semantic"
+    },
+    "creative-work": {
+      "label": "制作",
+      "kind": "semantic"
+    },
+    "enjoyment": {
+      "label": "楽しむ体験",
+      "kind": "semantic"
+    },
+    "research": {
+      "label": "探究",
+      "kind": "semantic"
+    }
+  },
+  "goals": {
+    "support-purpose": {
+      "question_ids": [
+        "HZ-SUP-001"
+      ],
+      "description": "最初に支援する用途を一つ選ぶ"
+    },
+    "avoid-failure": {
+      "question_ids": [
+        "HZ-SUP-002"
+      ],
+      "description": "避けるべき失敗を優先する"
+    },
+    "assistance-mode": {
+      "question_ids": [
+        "HZ-SUP-003"
+      ],
+      "description": "傾聴・整理・比較・提案の進め方を選ぶ"
+    },
+    "explanation-order": {
+      "question_ids": [
+        "HZ-SUP-004"
+      ],
+      "description": "結論・例・背景の提示順を決める"
+    },
+    "response-length": {
+      "question_ids": [
+        "HZ-SUP-005"
+      ],
+      "description": "用途別の詳細度を調整する"
+    },
+    "no-assumptions": {
+      "question_ids": [
+        "HZ-SUP-006",
+        "HZ-UNC-001",
+        "HZ-AID-005"
+      ],
+      "description": "不足情報への仮案と質問を選ぶ"
+    },
+    "stop-control": {
+      "question_ids": [
+        "HZ-SUP-007",
+        "HZ-AID-014"
+      ],
+      "description": "停止・休憩の操作を整える"
+    },
+    "expression-mode": {
+      "question_ids": [
+        "HZ-SUP-008"
+      ],
+      "description": "自由記述・例示・資料持込を選ぶ"
+    },
+    "unfinished-thought": {
+      "question_ids": [
+        "HZ-SUP-009"
+      ],
+      "description": "待つ・仮整理する条件を決める"
+    },
+    "correction-input": {
+      "question_ids": [
+        "HZ-SUP-010"
+      ],
+      "description": "簡単な訂正入力を選ぶ"
+    },
+    "encouragement": {
+      "question_ids": [
+        "HZ-SUP-011"
+      ],
+      "description": "励ましを使う条件を決める"
+    },
+    "understanding-check": {
+      "question_ids": [
+        "HZ-SUP-012",
+        "HZ-CHG-003"
+      ],
+      "description": "短い確認や並列表現の形式を決める"
+    },
+    "paused-record": {
+      "question_ids": [
+        "HZ-SUP-013",
+        "HZ-CHG-008"
+      ],
+      "description": "相談単位の個人化オフを選ぶ"
+    },
+    "visual-explanation": {
+      "question_ids": [
+        "HZ-SUP-014"
+      ],
+      "description": "説明媒体を選ぶ"
+    },
+    "support-outcome": {
+      "question_ids": [
+        "HZ-SUP-015"
+      ],
+      "description": "実利用の成果指標を選ぶ"
+    },
+    "support-burden": {
+      "question_ids": [
+        "HZ-SUP-016"
+      ],
+      "description": "支援導入に伴う追加作業の上限を選ぶ"
+    },
+    "desired-outcome": {
+      "question_ids": [
+        "HZ-GOA-001"
+      ],
+      "description": "支援の到達状態を定める"
+    },
+    "personal-agency": {
+      "question_ids": [
+        "HZ-GOA-002"
+      ],
+      "description": "選択の主体性を守る"
+    },
+    "retained-experience": {
+      "question_ids": [
+        "HZ-GOA-003",
+        "HZ-WOR-007",
+        "HZ-CRE-002",
+        "HZ-AID-001"
+      ],
+      "description": "代行から外す経験を選ぶ"
+    },
+    "unallocated-time": {
+      "question_ids": [
+        "HZ-GOA-004"
+      ],
+      "description": "未計画の余白を確保する"
+    },
+    "nonachievement-activity": {
+      "question_ids": [
+        "HZ-GOA-005"
+      ],
+      "description": "成果以外の活動を保護する"
+    },
+    "personal-satisfaction": {
+      "question_ids": [
+        "HZ-GOA-006"
+      ],
+      "description": "評価基準の出所を区別する"
+    },
+    "future-options": {
+      "question_ids": [
+        "HZ-GOA-007"
+      ],
+      "description": "将来の余地を考慮する"
+    },
+    "protected-daily-life": {
+      "question_ids": [
+        "HZ-GOA-008"
+      ],
+      "description": "目標達成の生活上の制約を付ける"
+    },
+    "good-day": {
+      "question_ids": [
+        "HZ-GOA-009"
+      ],
+      "description": "本人の充足基準を知る"
+    },
+    "goal-finish": {
+      "question_ids": [
+        "HZ-GOA-010"
+      ],
+      "description": "目標の終了条件を置く"
+    },
+    "private-thought": {
+      "question_ids": [
+        "HZ-GOA-011"
+      ],
+      "description": "非公開・未整理の領域を保護する"
+    },
+    "other-burden": {
+      "question_ids": [
+        "HZ-GOA-012",
+        "HZ-VAL-007"
+      ],
+      "description": "貢献と自己都合を調整する"
+    },
+    "retired-policy": {
+      "question_ids": [
+        "HZ-GOA-013",
+        "HZ-VAL-011",
+        "HZ-FUN-014",
+        "HZ-CHG-006"
+      ],
+      "description": "目標の停止候補を見つける"
+    },
+    "unsettled-thought": {
+      "question_ids": [
+        "HZ-GOA-014",
+        "HZ-VAL-016",
+        "HZ-CHG-013"
+      ],
+      "description": "目標を未確定のまま扱う"
+    },
+    "contingency-reserve": {
+      "question_ids": [
+        "HZ-GOA-015",
+        "HZ-MON-005"
+      ],
+      "description": "探索用の余力を確保する"
+    },
+    "process-enjoyment": {
+      "question_ids": [
+        "HZ-GOA-016",
+        "HZ-CRE-011"
+      ],
+      "description": "時間短縮しない過程を区別する"
+    },
+    "nonnegotiable": {
+      "question_ids": [
+        "HZ-VAL-001",
+        "HZ-DEC-001"
+      ],
+      "description": "拒否条件を先に設定する"
+    },
+    "value-conflict": {
+      "question_ids": [
+        "HZ-VAL-002"
+      ],
+      "description": "衝突時の条件付き選択を支える"
+    },
+    "time-horizon": {
+      "question_ids": [
+        "HZ-VAL-003"
+      ],
+      "description": "時間軸の比較を調整する"
+    },
+    "quality-floor": {
+      "question_ids": [
+        "HZ-VAL-004",
+        "HZ-WOR-006"
+      ],
+      "description": "品質の下限を決める"
+    },
+    "challenge-conditions": {
+      "question_ids": [
+        "HZ-VAL-005"
+      ],
+      "description": "挑戦の成立条件を決める"
+    },
+    "private-public": {
+      "question_ids": [
+        "HZ-VAL-006",
+        "HZ-ETH-011",
+        "HZ-COM-005",
+        "HZ-PRI-001"
+      ],
+      "description": "非開示のまま誠実な表現を作る"
+    },
+    "fairness": {
+      "question_ids": [
+        "HZ-VAL-008",
+        "HZ-REL-008"
+      ],
+      "description": "配分・役割の基準を支える"
+    },
+    "promise-adjustment": {
+      "question_ids": [
+        "HZ-VAL-009"
+      ],
+      "description": "約束変更の判断を支える"
+    },
+    "independent-opinion": {
+      "question_ids": [
+        "HZ-VAL-010"
+      ],
+      "description": "異論の保持と表明を分ける"
+    },
+    "safety-discretion": {
+      "question_ids": [
+        "HZ-VAL-012"
+      ],
+      "description": "安全と裁量の調整をする"
+    },
+    "prohibited-method": {
+      "question_ids": [
+        "HZ-VAL-013"
+      ],
+      "description": "手段の禁止条件を置く"
+    },
+    "activity-balance": {
+      "question_ids": [
+        "HZ-VAL-014"
+      ],
+      "description": "活動配分の軸を増やす"
+    },
+    "recovery-priority": {
+      "question_ids": [
+        "HZ-VAL-015"
+      ],
+      "description": "縮小時の優先条件を置く"
+    },
+    "disagreement-conduct": {
+      "question_ids": [
+        "HZ-ETH-001"
+      ],
+      "description": "異論への応答方針を決める"
+    },
+    "belief-update": {
+      "question_ids": [
+        "HZ-ETH-002"
+      ],
+      "description": "信念の再検討条件を知る"
+    },
+    "overlooked-perspective": {
+      "question_ids": [
+        "HZ-ETH-003"
+      ],
+      "description": "政策や共同方針の比較観点を選ぶ"
+    },
+    "persuasion-boundary": {
+      "question_ids": [
+        "HZ-ETH-004"
+      ],
+      "description": "説得手法の境界を守る"
+    },
+    "rule-purpose": {
+      "question_ids": [
+        "HZ-ETH-005"
+      ],
+      "description": "規則解釈の確認手順を選ぶ"
+    },
+    "collaboration-credit": {
+      "question_ids": [
+        "HZ-ETH-006",
+        "HZ-CRE-010"
+      ],
+      "description": "帰属・引用の表現を整える"
+    },
+    "public-correction": {
+      "question_ids": [
+        "HZ-ETH-008"
+      ],
+      "description": "対外訂正の表現と範囲を決める"
+    },
+    "conflict-disclosure": {
+      "question_ids": [
+        "HZ-ETH-009"
+      ],
+      "description": "利害関係の表示を支える"
+    },
+    "interest-bias": {
+      "question_ids": [
+        "HZ-ETH-010"
+      ],
+      "description": "利害を含む主張の点検方法を選ぶ"
+    },
+    "responsibility": {
+      "question_ids": [
+        "HZ-ETH-012"
+      ],
+      "description": "説明・修復などの責任基準を整理する"
+    },
+    "comparison-axis": {
+      "question_ids": [
+        "HZ-DEC-002"
+      ],
+      "description": "比較表の主要軸を選ぶ"
+    },
+    "option-count": {
+      "question_ids": [
+        "HZ-DEC-003"
+      ],
+      "description": "提示する候補数を調整する"
+    },
+    "research-limit": {
+      "question_ids": [
+        "HZ-DEC-004"
+      ],
+      "description": "低影響の調査上限を置く"
+    },
+    "irreversible-check": {
+      "question_ids": [
+        "HZ-DEC-005"
+      ],
+      "description": "不可逆な選択の確認項目を置く"
+    },
+    "bounded-trial": {
+      "question_ids": [
+        "HZ-DEC-006",
+        "HZ-AID-006"
+      ],
+      "description": "試行の範囲を限定する"
+    },
+    "unresolved-variable": {
+      "question_ids": [
+        "HZ-DEC-007",
+        "HZ-NOW-008"
+      ],
+      "description": "期限付き不確実性への対応を選ぶ"
+    },
+    "tie-break": {
+      "question_ids": [
+        "HZ-DEC-008"
+      ],
+      "description": "同点に近い候補の扱いを決める"
+    },
+    "revisit-trigger": {
+      "question_ids": [
+        "HZ-DEC-009"
+      ],
+      "description": "再検討の契機を置く"
+    },
+    "consultation-needed": {
+      "question_ids": [
+        "HZ-DEC-010"
+      ],
+      "description": "相談が必要な判断を区別する"
+    },
+    "policy-exception": {
+      "question_ids": [
+        "HZ-DEC-011",
+        "HZ-FUN-010",
+        "HZ-CHG-007"
+      ],
+      "description": "経験則の適用外を記録する"
+    },
+    "sunk-cost": {
+      "question_ids": [
+        "HZ-DEC-012"
+      ],
+      "description": "今後の便益と過去の投入を分ける"
+    },
+    "explanation-evidence": {
+      "question_ids": [
+        "HZ-DEC-013",
+        "HZ-AID-012"
+      ],
+      "description": "判断に必要な説明を選ぶ"
+    },
+    "decision-deferral": {
+      "question_ids": [
+        "HZ-DEC-014"
+      ],
+      "description": "保留そのものの便益を考慮する"
+    },
+    "decision-record": {
+      "question_ids": [
+        "HZ-DEC-015"
+      ],
+      "description": "決定記録の対象を選ぶ"
+    },
+    "alternative-options": {
+      "question_ids": [
+        "HZ-DEC-016"
+      ],
+      "description": "見送りや現状維持も含む比較対象を選ぶ"
+    },
+    "source-evidence": {
+      "question_ids": [
+        "HZ-UNC-002"
+      ],
+      "description": "必要な出典と検証水準を選ぶ"
+    },
+    "uncertainty-display": {
+      "question_ids": [
+        "HZ-UNC-003"
+      ],
+      "description": "未確認・推定・不明の表示を選ぶ"
+    },
+    "conflicting-evidence": {
+      "question_ids": [
+        "HZ-UNC-004"
+      ],
+      "description": "矛盾の検証範囲を決める"
+    },
+    "fresh-information": {
+      "question_ids": [
+        "HZ-UNC-005"
+      ],
+      "description": "情報種類ごとの再確認を選ぶ"
+    },
+    "expert-disagreement": {
+      "question_ids": [
+        "HZ-UNC-006"
+      ],
+      "description": "異なる判断材料の検討手順を決める"
+    },
+    "counterevidence": {
+      "question_ids": [
+        "HZ-UNC-007",
+        "HZ-AID-009"
+      ],
+      "description": "反証や代案を提示する範囲を決める"
+    },
+    "numeric-limits": {
+      "question_ids": [
+        "HZ-UNC-008"
+      ],
+      "description": "定量比較の限界を補う"
+    },
+    "prediction-review": {
+      "question_ids": [
+        "HZ-UNC-009"
+      ],
+      "description": "仮定と結果の振り返りを支える"
+    },
+    "unwanted-information": {
+      "question_ids": [
+        "HZ-UNC-010",
+        "HZ-FUN-005"
+      ],
+      "description": "望まない情報の提示を防ぐ"
+    },
+    "minimum-check": {
+      "question_ids": [
+        "HZ-UNC-011"
+      ],
+      "description": "短時間での検証の下限を置く"
+    },
+    "research-to-action": {
+      "question_ids": [
+        "HZ-UNC-012"
+      ],
+      "description": "調査から試行への切替条件を知る"
+    },
+    "learning-target": {
+      "question_ids": [
+        "HZ-LEA-001"
+      ],
+      "description": "今回の習得目標を決める"
+    },
+    "prior-knowledge": {
+      "question_ids": [
+        "HZ-LEA-002"
+      ],
+      "description": "既習部分を省く"
+    },
+    "learning-example": {
+      "question_ids": [
+        "HZ-LEA-003"
+      ],
+      "description": "導入する例を選ぶ"
+    },
+    "hints-boundary": {
+      "question_ids": [
+        "HZ-LEA-004"
+      ],
+      "description": "ヒントと解答の境界を決める"
+    },
+    "learning-check": {
+      "question_ids": [
+        "HZ-LEA-005"
+      ],
+      "description": "理解確認の方法を選ぶ"
+    },
+    "error-feedback": {
+      "question_ids": [
+        "HZ-LEA-006"
+      ],
+      "description": "誤答フィードバックを調整する"
+    },
+    "completion-learning": {
+      "question_ids": [
+        "HZ-LEA-007"
+      ],
+      "description": "完成と後日の理解を分ける"
+    },
+    "retained-practice": {
+      "question_ids": [
+        "HZ-LEA-008",
+        "HZ-AID-013"
+      ],
+      "description": "練習の形式を選ぶ"
+    },
+    "learning-chunk": {
+      "question_ids": [
+        "HZ-LEA-009"
+      ],
+      "description": "説明の区切りを決める"
+    },
+    "reference-not-memory": {
+      "question_ids": [
+        "HZ-LEA-010"
+      ],
+      "description": "暗記と外部参照を分ける"
+    },
+    "methods-comparison": {
+      "question_ids": [
+        "HZ-LEA-011"
+      ],
+      "description": "複数手法の比較学習を設計する"
+    },
+    "poor-teaching": {
+      "question_ids": [
+        "HZ-LEA-012"
+      ],
+      "description": "避ける説明形式を知る"
+    },
+    "learning-rules": {
+      "question_ids": [
+        "HZ-LEA-013"
+      ],
+      "description": "課題・試験・職務等の条件を確認する"
+    },
+    "exploration-learning": {
+      "question_ids": [
+        "HZ-LEA-014"
+      ],
+      "description": "探索的学習を残す"
+    },
+    "skill-freshness": {
+      "question_ids": [
+        "HZ-LEA-015"
+      ],
+      "description": "技能情報の現在性を確かめる"
+    },
+    "learning-transfer": {
+      "question_ids": [
+        "HZ-LEA-016"
+      ],
+      "description": "学習の転用を確かめる"
+    },
+    "research-question": {
+      "question_ids": [
+        "HZ-RES-001"
+      ],
+      "description": "探究の問いを定める"
+    },
+    "research-progress": {
+      "question_ids": [
+        "HZ-RES-002"
+      ],
+      "description": "探究の進捗基準を置く"
+    },
+    "research-refutation": {
+      "question_ids": [
+        "HZ-RES-003"
+      ],
+      "description": "反証や再検討の手順を置く"
+    },
+    "reproducibility-record": {
+      "question_ids": [
+        "HZ-RES-004"
+      ],
+      "description": "再確認に必要な記録を選ぶ"
+    },
+    "research-continuation": {
+      "question_ids": [
+        "HZ-RES-005"
+      ],
+      "description": "探究の継続・停止条件を選ぶ"
+    },
+    "research-phase": {
+      "question_ids": [
+        "HZ-RES-006"
+      ],
+      "description": "探索段階と確証段階を分ける"
+    },
+    "publication-check": {
+      "question_ids": [
+        "HZ-RES-007",
+        "HZ-CRE-009"
+      ],
+      "description": "公開前確認を定める"
+    },
+    "collaboration-role": {
+      "question_ids": [
+        "HZ-RES-008"
+      ],
+      "description": "共同探究の分担を作る"
+    },
+    "data-use-boundary": {
+      "question_ids": [
+        "HZ-RES-009",
+        "HZ-DAT-001"
+      ],
+      "description": "資料の利用範囲を確認する"
+    },
+    "tentative-notes": {
+      "question_ids": [
+        "HZ-RES-010"
+      ],
+      "description": "探究メモと主張を分ける"
+    },
+    "ai-research-verification": {
+      "question_ids": [
+        "HZ-RES-011"
+      ],
+      "description": "AI案の検証対象を決める"
+    },
+    "research-support-distance": {
+      "question_ids": [
+        "HZ-RES-012"
+      ],
+      "description": "探究中の支援の距離を調整する"
+    },
+    "activity-criteria": {
+      "question_ids": [
+        "HZ-WOR-001"
+      ],
+      "description": "活動や仕事の比較軸を選ぶ"
+    },
+    "acceptance-check": {
+      "question_ids": [
+        "HZ-WOR-002"
+      ],
+      "description": "受諾前の必須情報を定める"
+    },
+    "bad-working-method": {
+      "question_ids": [
+        "HZ-WOR-003"
+      ],
+      "description": "協働方法の拒否条件を置く"
+    },
+    "relationship-boundary": {
+      "question_ids": [
+        "HZ-WOR-004",
+        "HZ-REL-001"
+      ],
+      "description": "役割の拡大を制限する"
+    },
+    "protected-time": {
+      "question_ids": [
+        "HZ-WOR-005",
+        "HZ-LIF-001",
+        "HZ-NOW-004"
+      ],
+      "description": "連絡・作業時間の境界を置く"
+    },
+    "renegotiation": {
+      "question_ids": [
+        "HZ-WOR-008"
+      ],
+      "description": "交渉可能な条件を選ぶ"
+    },
+    "uncertain-capacity": {
+      "question_ids": [
+        "HZ-WOR-009"
+      ],
+      "description": "能力の不確実性を表現する"
+    },
+    "activity-reduction": {
+      "question_ids": [
+        "HZ-WOR-010"
+      ],
+      "description": "縮小・撤退条件を置く"
+    },
+    "work-learning": {
+      "question_ids": [
+        "HZ-WOR-011"
+      ],
+      "description": "経験価値を比較に入れる"
+    },
+    "response-timing": {
+      "question_ids": [
+        "HZ-WOR-012",
+        "HZ-COM-014"
+      ],
+      "description": "応答時間の境界を整える"
+    },
+    "one-time-cooperation": {
+      "question_ids": [
+        "HZ-WOR-013"
+      ],
+      "description": "受諾文の期間と範囲を限定する"
+    },
+    "feedback-format": {
+      "question_ids": [
+        "HZ-WOR-014"
+      ],
+      "description": "フィードバックの受け方を調整する"
+    },
+    "preparation": {
+      "question_ids": [
+        "HZ-LIF-002",
+        "HZ-NOW-010"
+      ],
+      "description": "準備を含む所要時間を見積もる"
+    },
+    "reduced-operation": {
+      "question_ids": [
+        "HZ-LIF-003",
+        "HZ-NOW-009"
+      ],
+      "description": "縮小版の計画を用意する"
+    },
+    "rest-priority": {
+      "question_ids": [
+        "HZ-LIF-004",
+        "HZ-LIF-014"
+      ],
+      "description": "休息へ切り替える条件を置く"
+    },
+    "lifestyle-advice": {
+      "question_ids": [
+        "HZ-LIF-005"
+      ],
+      "description": "望まない介入を避ける"
+    },
+    "habit-environment": {
+      "question_ids": [
+        "HZ-LIF-006"
+      ],
+      "description": "環境面の前提を整える"
+    },
+    "schedule-granularity": {
+      "question_ids": [
+        "HZ-LIF-007"
+      ],
+      "description": "計画の粒度を選ぶ"
+    },
+    "support-responsibility": {
+      "question_ids": [
+        "HZ-LIF-008"
+      ],
+      "description": "支援・世話・共同生活の拘束を考慮する"
+    },
+    "travel-burden": {
+      "question_ids": [
+        "HZ-LIF-009"
+      ],
+      "description": "移動・待機・休憩を含める"
+    },
+    "food-condition": {
+      "question_ids": [
+        "HZ-LIF-010"
+      ],
+      "description": "必要な食事条件だけ適用する"
+    },
+    "unrecorded-life": {
+      "question_ids": [
+        "HZ-LIF-011",
+        "HZ-MON-012"
+      ],
+      "description": "生活記録の対象外を決める"
+    },
+    "recovery-order": {
+      "question_ids": [
+        "HZ-LIF-012"
+      ],
+      "description": "回復の最初の行動を選ぶ"
+    },
+    "living-environment": {
+      "question_ids": [
+        "HZ-LIF-013"
+      ],
+      "description": "環境条件を提案に入れる"
+    },
+    "resource-cap": {
+      "question_ids": [
+        "HZ-MON-001"
+      ],
+      "description": "タスク単位の資源上限を置く"
+    },
+    "effort-price": {
+      "question_ids": [
+        "HZ-MON-002"
+      ],
+      "description": "費用と負担軽減を比較する"
+    },
+    "reuse-tools": {
+      "question_ids": [
+        "HZ-MON-003"
+      ],
+      "description": "既存資源を先に検討する"
+    },
+    "recurring-payment": {
+      "question_ids": [
+        "HZ-MON-004"
+      ],
+      "description": "継続費と終了条件を比較する"
+    },
+    "shared-resource": {
+      "question_ids": [
+        "HZ-MON-006"
+      ],
+      "description": "所有・共有・借用を比較する"
+    },
+    "maintenance-burden": {
+      "question_ids": [
+        "HZ-MON-007"
+      ],
+      "description": "保守を含む資源負担を比べる"
+    },
+    "cost-value": {
+      "question_ids": [
+        "HZ-MON-008"
+      ],
+      "description": "本人の費用対効果の基準を知る"
+    },
+    "ethical-provision": {
+      "question_ids": [
+        "HZ-MON-009"
+      ],
+      "description": "価格以外の提供条件を比較する"
+    },
+    "free-service-burden": {
+      "question_ids": [
+        "HZ-MON-010"
+      ],
+      "description": "データ提供・広告・解約の負担を確認する"
+    },
+    "discard-resource": {
+      "question_ids": [
+        "HZ-MON-011"
+      ],
+      "description": "保持・整理の基準を選ぶ"
+    },
+    "support-role": {
+      "question_ids": [
+        "HZ-REL-002"
+      ],
+      "description": "相談への応答を整える"
+    },
+    "current-capacity": {
+      "question_ids": [
+        "HZ-REL-003",
+        "HZ-NOW-002"
+      ],
+      "description": "支援の受諾範囲を決める"
+    },
+    "asking-help": {
+      "question_ids": [
+        "HZ-REL-004"
+      ],
+      "description": "支援要請の文面や方法を選ぶ"
+    },
+    "contact-frequency": {
+      "question_ids": [
+        "HZ-REL-005"
+      ],
+      "description": "関係維持の支援を調整する"
+    },
+    "relationship-depth": {
+      "question_ids": [
+        "HZ-REL-006"
+      ],
+      "description": "関与の範囲を表現する"
+    },
+    "collaboration-disagreement": {
+      "question_ids": [
+        "HZ-REL-007"
+      ],
+      "description": "不同意時の協働方法を選ぶ"
+    },
+    "limited-contact": {
+      "question_ids": [
+        "HZ-REL-009"
+      ],
+      "description": "必要最小限の連絡を作る"
+    },
+    "relationship-repair": {
+      "question_ids": [
+        "HZ-REL-010"
+      ],
+      "description": "修復の検討条件を整理する"
+    },
+    "personal-events": {
+      "question_ids": [
+        "HZ-REL-011"
+      ],
+      "description": "記念日等の保存対象を限定する"
+    },
+    "alone-together": {
+      "question_ids": [
+        "HZ-REL-012"
+      ],
+      "description": "現在の交流配分を調整する"
+    },
+    "joint-decision": {
+      "question_ids": [
+        "HZ-REL-013"
+      ],
+      "description": "共同承認が必要な対象を区別する"
+    },
+    "expectation-check": {
+      "question_ids": [
+        "HZ-REL-014"
+      ],
+      "description": "対人支援で未確認の期待を保留する"
+    },
+    "writing-voice": {
+      "question_ids": [
+        "HZ-COM-001"
+      ],
+      "description": "避ける文体や語句を用途別に記録する"
+    },
+    "unfamiliar-distance": {
+      "question_ids": [
+        "HZ-COM-002"
+      ],
+      "description": "初回連絡の調子を調整する"
+    },
+    "familiar-tone": {
+      "question_ids": [
+        "HZ-COM-003"
+      ],
+      "description": "関係と用件を分けて文体を選ぶ"
+    },
+    "promise-check": {
+      "question_ids": [
+        "HZ-COM-004"
+      ],
+      "description": "期限・範囲・受諾の表現を制限する"
+    },
+    "apology-focus": {
+      "question_ids": [
+        "HZ-COM-006"
+      ],
+      "description": "謝罪と対応方針の構成を整える"
+    },
+    "self-presentation": {
+      "question_ids": [
+        "HZ-COM-007"
+      ],
+      "description": "自己紹介の表現を整える"
+    },
+    "broad-audience": {
+      "question_ids": [
+        "HZ-COM-008",
+        "HZ-PRI-005"
+      ],
+      "description": "閲覧者に応じて情報を削る"
+    },
+    "partial-reply": {
+      "question_ids": [
+        "HZ-COM-009"
+      ],
+      "description": "部分回答と保留を組み合わせる"
+    },
+    "disagreement-tone": {
+      "question_ids": [
+        "HZ-COM-010"
+      ],
+      "description": "異論の明確さを調整する"
+    },
+    "humor": {
+      "question_ids": [
+        "HZ-COM-011"
+      ],
+      "description": "軽さを使う範囲を決める"
+    },
+    "translation-voice": {
+      "question_ids": [
+        "HZ-COM-012",
+        "HZ-ACC-007"
+      ],
+      "description": "翻訳時の文体条件を置く"
+    },
+    "review-format": {
+      "question_ids": [
+        "HZ-COM-013",
+        "HZ-CHG-002",
+        "HZ-ACC-004"
+      ],
+      "description": "レビュー用の補足を選ぶ"
+    },
+    "creative-experience": {
+      "question_ids": [
+        "HZ-CRE-001"
+      ],
+      "description": "制作の中心目的を定める"
+    },
+    "creative-quality": {
+      "question_ids": [
+        "HZ-CRE-003"
+      ],
+      "description": "成果物の評価基準を置く"
+    },
+    "reference-element": {
+      "question_ids": [
+        "HZ-CRE-004"
+      ],
+      "description": "参照する要素を限定する"
+    },
+    "creative-range": {
+      "question_ids": [
+        "HZ-CRE-005"
+      ],
+      "description": "探索する案の幅を決める"
+    },
+    "prototype-detail": {
+      "question_ids": [
+        "HZ-CRE-006"
+      ],
+      "description": "最小の確認用成果物を選ぶ"
+    },
+    "protected-edit": {
+      "question_ids": [
+        "HZ-CRE-007"
+      ],
+      "description": "編集の変更範囲を限定する"
+    },
+    "unexpected-expression": {
+      "question_ids": [
+        "HZ-CRE-008"
+      ],
+      "description": "制作中の偶然を採用する条件を知る"
+    },
+    "noninherited-style": {
+      "question_ids": [
+        "HZ-CRE-012"
+      ],
+      "description": "作品ごとの文脈を分離する"
+    },
+    "desired-enjoyment": {
+      "question_ids": [
+        "HZ-FUN-001"
+      ],
+      "description": "今回の娯楽の目的を選ぶ"
+    },
+    "positive-experience": {
+      "question_ids": [
+        "HZ-FUN-002"
+      ],
+      "description": "推薦の根拠となる体験要素を知る"
+    },
+    "negative-experience": {
+      "question_ids": [
+        "HZ-FUN-003"
+      ],
+      "description": "推薦から外す特徴を知る"
+    },
+    "avoided-stimuli": {
+      "question_ids": [
+        "HZ-FUN-004"
+      ],
+      "description": "推薦の回避条件を置く"
+    },
+    "enjoyable-challenge": {
+      "question_ids": [
+        "HZ-FUN-006"
+      ],
+      "description": "挑戦の適合条件を知る"
+    },
+    "new-or-familiar": {
+      "question_ids": [
+        "HZ-FUN-007"
+      ],
+      "description": "探索と再体験を調整する"
+    },
+    "interruptible-experience": {
+      "question_ids": [
+        "HZ-FUN-008"
+      ],
+      "description": "中断可能な体験を選ぶ"
+    },
+    "solo-or-shared": {
+      "question_ids": [
+        "HZ-FUN-009"
+      ],
+      "description": "参加形態ごとの条件を分ける"
+    },
+    "leisure-place": {
+      "question_ids": [
+        "HZ-FUN-011"
+      ],
+      "description": "外出先の適合条件を選ぶ"
+    },
+    "music-element": {
+      "question_ids": [
+        "HZ-FUN-012"
+      ],
+      "description": "音の推薦軸を知る"
+    },
+    "story-aftertaste": {
+      "question_ids": [
+        "HZ-FUN-013"
+      ],
+      "description": "物語の後味を調整する"
+    },
+    "aesthetic-elements": {
+      "question_ids": [
+        "HZ-AES-001"
+      ],
+      "description": "美意識の具体的な評価軸を知る"
+    },
+    "affected-expression": {
+      "question_ids": [
+        "HZ-AES-002"
+      ],
+      "description": "装飾や演出の回避条件を置く"
+    },
+    "readability-atmosphere": {
+      "question_ids": [
+        "HZ-AES-003"
+      ],
+      "description": "表現の機能上の下限を置く"
+    },
+    "color-context": {
+      "question_ids": [
+        "HZ-AES-004"
+      ],
+      "description": "対象別の配色条件を分ける"
+    },
+    "irregularity": {
+      "question_ids": [
+        "HZ-AES-005"
+      ],
+      "description": "整い方の好みを条件付きにする"
+    },
+    "typography": {
+      "question_ids": [
+        "HZ-AES-006"
+      ],
+      "description": "文字サイズ・密度・配置を調整する"
+    },
+    "unwanted-appearance": {
+      "question_ids": [
+        "HZ-AES-007"
+      ],
+      "description": "物の見た目の除外条件を置く"
+    },
+    "aging-character": {
+      "question_ids": [
+        "HZ-AES-008"
+      ],
+      "description": "経年変化の好みを分ける"
+    },
+    "visual-comparison": {
+      "question_ids": [
+        "HZ-AES-009"
+      ],
+      "description": "デザインの比較確認方法を決める"
+    },
+    "tactile-conditions": {
+      "question_ids": [
+        "HZ-AES-010"
+      ],
+      "description": "物や入力機器の触感・重さの条件を選ぶ"
+    },
+    "prohibited-ai-draft": {
+      "question_ids": [
+        "HZ-AID-002"
+      ],
+      "description": "下書き内で禁止する提案行為を決める"
+    },
+    "process-visibility": {
+      "question_ids": [
+        "HZ-AID-003"
+      ],
+      "description": "工程の可視化の粒度を合わせる"
+    },
+    "progress-report": {
+      "question_ids": [
+        "HZ-AID-004"
+      ],
+      "description": "途中報告の発生条件を選ぶ"
+    },
+    "delegation-evidence": {
+      "question_ids": [
+        "HZ-AID-007"
+      ],
+      "description": "委任拡大の評価条件を置く。権限設定とは分ける"
+    },
+    "failure-stop": {
+      "question_ids": [
+        "HZ-AID-008"
+      ],
+      "description": "失敗時の利用停止範囲を決める"
+    },
+    "proactive-proposal": {
+      "question_ids": [
+        "HZ-AID-010"
+      ],
+      "description": "自発的な提案の対象範囲を選ぶ"
+    },
+    "latency-cost": {
+      "question_ids": [
+        "HZ-AID-011"
+      ],
+      "description": "今回のモデル呼び出しの予算配分を選ぶ"
+    },
+    "provider-change": {
+      "question_ids": [
+        "HZ-AID-015"
+      ],
+      "description": "プロバイダー切替の確認項目を選ぶ"
+    },
+    "constraint-explanation": {
+      "question_ids": [
+        "HZ-AID-016"
+      ],
+      "description": "制約衝突の説明と代替案の出し方を選ぶ"
+    },
+    "local-only": {
+      "question_ids": [
+        "HZ-PRI-002"
+      ],
+      "description": "ローカル限定データを選ぶ。会話の答えだけで送信許可にしない"
+    },
+    "purpose-reuse": {
+      "question_ids": [
+        "HZ-PRI-003"
+      ],
+      "description": "目的間の再利用制限を置く"
+    },
+    "audience-scope": {
+      "question_ids": [
+        "HZ-PRI-004"
+      ],
+      "description": "相手の役割別に共有範囲を定める"
+    },
+    "third-party-data": {
+      "question_ids": [
+        "HZ-PRI-006"
+      ],
+      "description": "第三者情報を省略・匿名化する境界を置く"
+    },
+    "public-linking": {
+      "question_ids": [
+        "HZ-PRI-007"
+      ],
+      "description": "公開情報の名寄せを制限する"
+    },
+    "sharing-granularity": {
+      "question_ids": [
+        "HZ-PRI-008"
+      ],
+      "description": "粒度を落とした共有を選ぶ"
+    },
+    "exact-quotation": {
+      "question_ids": [
+        "HZ-PRI-009"
+      ],
+      "description": "原文引用を別に承認する"
+    },
+    "combined-disclosure": {
+      "question_ids": [
+        "HZ-PRI-010"
+      ],
+      "description": "組合せで漏れる情報を減らす"
+    },
+    "anonymous-private": {
+      "question_ids": [
+        "HZ-PRI-011"
+      ],
+      "description": "匿名化後の共有禁止を保持する"
+    },
+    "retired-disclosure": {
+      "question_ids": [
+        "HZ-PRI-012"
+      ],
+      "description": "将来の開示を停止する"
+    },
+    "new-purpose-consent": {
+      "question_ids": [
+        "HZ-PRI-013"
+      ],
+      "description": "目的変更の承認画面を設計する"
+    },
+    "evaluation-data": {
+      "question_ids": [
+        "HZ-PRI-014"
+      ],
+      "description": "任意の評価データ提供の希望を知る。提供は別操作"
+    },
+    "refused-topic": {
+      "question_ids": [
+        "HZ-PRI-015"
+      ],
+      "description": "話題単位の質問抑止を設定する候補を作る"
+    },
+    "private-speech": {
+      "question_ids": [
+        "HZ-PRI-016",
+        "HZ-ACC-006"
+      ],
+      "description": "画面・読み上げ・通知の露出を減らす"
+    },
+    "correction-scope": {
+      "question_ids": [
+        "HZ-CHG-001"
+      ],
+      "description": "今回限り・場面限定・継続方針を分ける"
+    },
+    "temporary-opinion": {
+      "question_ids": [
+        "HZ-CHG-004"
+      ],
+      "description": "現在の感想と再利用知識を区別する"
+    },
+    "historical-correction": {
+      "question_ids": [
+        "HZ-CHG-005"
+      ],
+      "description": "当時の誤りと現在への変化を分ける"
+    },
+    "delete-derivatives": {
+      "question_ids": [
+        "HZ-CHG-009"
+      ],
+      "description": "削除対象と派生物の説明を行う。実行は明示操作で確認"
+    },
+    "unconfirmed-use": {
+      "question_ids": [
+        "HZ-CHG-010"
+      ],
+      "description": "未確認事項を使わない領域を選ぶ"
+    },
+    "correction-effects": {
+      "question_ids": [
+        "HZ-CHG-011"
+      ],
+      "description": "訂正の影響範囲を本人へ示す"
+    },
+    "review-trigger": {
+      "question_ids": [
+        "HZ-CHG-012"
+      ],
+      "description": "見直しを利用時や変化時へ限定する"
+    },
+    "mistaken-adoption": {
+      "question_ids": [
+        "HZ-CHG-014"
+      ],
+      "description": "承認履歴と差分の取消動線を整える"
+    },
+    "current-priority": {
+      "question_ids": [
+        "HZ-NOW-001"
+      ],
+      "description": "今回の目標を長期方針から区別する"
+    },
+    "current-deadline": {
+      "question_ids": [
+        "HZ-NOW-003"
+      ],
+      "description": "調査・作成・判断の時間制約を置く"
+    },
+    "current-environment": {
+      "question_ids": [
+        "HZ-NOW-005"
+      ],
+      "description": "現在の実行環境に合わせる"
+    },
+    "current-role": {
+      "question_ids": [
+        "HZ-NOW-006"
+      ],
+      "description": "現在の役割を必要な範囲で扱う"
+    },
+    "settled-decision": {
+      "question_ids": [
+        "HZ-NOW-007"
+      ],
+      "description": "再検討しない前提を明確にする"
+    },
+    "tried-option": {
+      "question_ids": [
+        "HZ-NOW-011"
+      ],
+      "description": "再提案を避ける"
+    },
+    "current-source": {
+      "question_ids": [
+        "HZ-NOW-012"
+      ],
+      "description": "本人が指定した現在の参照元を選ぶ"
+    },
+    "deferred-option": {
+      "question_ids": [
+        "HZ-NOW-013"
+      ],
+      "description": "一時保留の候補を保持する"
+    },
+    "condition-expiry": {
+      "question_ids": [
+        "HZ-NOW-014"
+      ],
+      "description": "利用期限・見直し時期を置く"
+    },
+    "accessible-control": {
+      "question_ids": [
+        "HZ-ACC-001"
+      ],
+      "description": "操作上の配慮を選ぶ。診断や理由を求めない"
+    },
+    "language": {
+      "question_ids": [
+        "HZ-ACC-002"
+      ],
+      "description": "相談ごとの言語を選ぶ"
+    },
+    "technical-vocabulary": {
+      "question_ids": [
+        "HZ-ACC-003"
+      ],
+      "description": "語彙と前提説明の水準を調整する"
+    },
+    "speech-submission": {
+      "question_ids": [
+        "HZ-ACC-005"
+      ],
+      "description": "手動送信・保留・確定の操作を選ぶ"
+    },
+    "time-format": {
+      "question_ids": [
+        "HZ-ACC-008"
+      ],
+      "description": "タイムゾーン・日付形式を指定する"
+    },
+    "address-form": {
+      "question_ids": [
+        "HZ-ACC-009"
+      ],
+      "description": "呼称または呼称なしを選ぶ"
+    },
+    "local-convention": {
+      "question_ids": [
+        "HZ-ACC-010"
+      ],
+      "description": "場面固有の慣習を扱う"
+    },
+    "document-speaker": {
+      "question_ids": [
+        "HZ-DAT-002"
+      ],
+      "description": "話者と資料内の役割を分ける"
+    },
+    "document-time": {
+      "question_ids": [
+        "HZ-DAT-003"
+      ],
+      "description": "資料の記述対象時期を分ける"
+    },
+    "audio-retention": {
+      "question_ids": [
+        "HZ-DAT-004"
+      ],
+      "description": "音声保存の独立した選択を提示する。既定は保存しない"
+    },
+    "source-retention": {
+      "question_ids": [
+        "HZ-DAT-005"
+      ],
+      "description": "原文の保持目的と期限を選ぶ"
+    },
+    "export-format": {
+      "question_ids": [
+        "HZ-DAT-006"
+      ],
+      "description": "持ち出し内容と人が読める形式を選ぶ"
+    },
+    "backup-scope": {
+      "question_ids": [
+        "HZ-DAT-007"
+      ],
+      "description": "バックアップの範囲と回復目標を選ぶ"
+    },
+    "key-recovery": {
+      "question_ids": [
+        "HZ-DAT-008"
+      ],
+      "description": "復旧手段の操作負担を選ぶ。鍵そのものは質問しない"
+    },
+    "end-record": {
+      "question_ids": [
+        "HZ-DAT-009"
+      ],
+      "description": "持ち出し・停止・削除の終了動線を選ぶ"
+    },
+    "export-correction": {
+      "question_ids": [
+        "HZ-DAT-010"
+      ],
+      "description": "持ち出し履歴と訂正通知の確認範囲を選ぶ"
+    },
+    "technology-adoption": {
+      "question_ids": [
+        "HZ-ETH-007"
+      ],
+      "description": "技術導入の評価軸を置く"
+    }
+  },
+  "questions": {
+    "HZ-SUP-001": {
+      "goal_id": "support-purpose",
+      "topic_ids": [
+        "SUP"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-002": {
+      "goal_id": "avoid-failure",
+      "topic_ids": [
+        "SUP"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-003": {
+      "goal_id": "assistance-mode",
+      "topic_ids": [
+        "SUP"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-004": {
+      "goal_id": "explanation-order",
+      "topic_ids": [
+        "SUP"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-005": {
+      "goal_id": "response-length",
+      "topic_ids": [
+        "SUP"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-006": {
+      "goal_id": "no-assumptions",
+      "topic_ids": [
+        "SUP",
+        "uncertainty"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-007": {
+      "goal_id": "stop-control",
+      "topic_ids": [
+        "SUP",
+        "question-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-008": {
+      "goal_id": "expression-mode",
+      "topic_ids": [
+        "SUP"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-009": {
+      "goal_id": "unfinished-thought",
+      "topic_ids": [
+        "SUP"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-010": {
+      "goal_id": "correction-input",
+      "topic_ids": [
+        "SUP",
+        "review"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-011": {
+      "goal_id": "encouragement",
+      "topic_ids": [
+        "SUP"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-012": {
+      "goal_id": "understanding-check",
+      "topic_ids": [
+        "SUP",
+        "review"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-013": {
+      "goal_id": "paused-record",
+      "topic_ids": [
+        "SUP",
+        "current-policy"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-014": {
+      "goal_id": "visual-explanation",
+      "topic_ids": [
+        "SUP"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-015": {
+      "goal_id": "support-outcome",
+      "topic_ids": [
+        "SUP"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-SUP-016": {
+      "goal_id": "support-burden",
+      "topic_ids": [
+        "SUP",
+        "resource-cost"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-GOA-001": {
+      "goal_id": "desired-outcome",
+      "topic_ids": [
+        "GOA"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-002": {
+      "goal_id": "personal-agency",
+      "topic_ids": [
+        "GOA",
+        "agency"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-003": {
+      "goal_id": "retained-experience",
+      "topic_ids": [
+        "GOA",
+        "agency",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-004": {
+      "goal_id": "unallocated-time",
+      "topic_ids": [
+        "GOA",
+        "time-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-005": {
+      "goal_id": "nonachievement-activity",
+      "topic_ids": [
+        "GOA",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-006": {
+      "goal_id": "personal-satisfaction",
+      "topic_ids": [
+        "GOA"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-007": {
+      "goal_id": "future-options",
+      "topic_ids": [
+        "GOA"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-008": {
+      "goal_id": "protected-daily-life",
+      "topic_ids": [
+        "GOA",
+        "time-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-009": {
+      "goal_id": "good-day",
+      "topic_ids": [
+        "GOA",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-010": {
+      "goal_id": "goal-finish",
+      "topic_ids": [
+        "GOA"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-011": {
+      "goal_id": "private-thought",
+      "topic_ids": [
+        "GOA"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-012": {
+      "goal_id": "other-burden",
+      "topic_ids": [
+        "GOA",
+        "value-conflict"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-013": {
+      "goal_id": "retired-policy",
+      "topic_ids": [
+        "GOA",
+        "current-policy",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-014": {
+      "goal_id": "unsettled-thought",
+      "topic_ids": [
+        "GOA",
+        "value-conflict"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-015": {
+      "goal_id": "contingency-reserve",
+      "topic_ids": [
+        "GOA",
+        "time-boundary",
+        "resource-cost"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-GOA-016": {
+      "goal_id": "process-enjoyment",
+      "topic_ids": [
+        "GOA",
+        "agency",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-001": {
+      "goal_id": "nonnegotiable",
+      "topic_ids": [
+        "VAL",
+        "judgment-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-002": {
+      "goal_id": "value-conflict",
+      "topic_ids": [
+        "VAL",
+        "value-conflict"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-003": {
+      "goal_id": "time-horizon",
+      "topic_ids": [
+        "VAL",
+        "value-conflict"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-004": {
+      "goal_id": "quality-floor",
+      "topic_ids": [
+        "VAL"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-005": {
+      "goal_id": "challenge-conditions",
+      "topic_ids": [
+        "VAL"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-006": {
+      "goal_id": "private-public",
+      "topic_ids": [
+        "VAL",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-007": {
+      "goal_id": "other-burden",
+      "topic_ids": [
+        "VAL",
+        "value-conflict"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-008": {
+      "goal_id": "fairness",
+      "topic_ids": [
+        "VAL"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-009": {
+      "goal_id": "promise-adjustment",
+      "topic_ids": [
+        "VAL"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-010": {
+      "goal_id": "independent-opinion",
+      "topic_ids": [
+        "VAL"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-011": {
+      "goal_id": "retired-policy",
+      "topic_ids": [
+        "VAL",
+        "current-policy",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-012": {
+      "goal_id": "safety-discretion",
+      "topic_ids": [
+        "VAL"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-013": {
+      "goal_id": "prohibited-method",
+      "topic_ids": [
+        "VAL",
+        "judgment-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-014": {
+      "goal_id": "activity-balance",
+      "topic_ids": [
+        "VAL",
+        "value-conflict"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-015": {
+      "goal_id": "recovery-priority",
+      "topic_ids": [
+        "VAL",
+        "value-conflict"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-VAL-016": {
+      "goal_id": "unsettled-thought",
+      "topic_ids": [
+        "VAL",
+        "value-conflict"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-ETH-001": {
+      "goal_id": "disagreement-conduct",
+      "topic_ids": [
+        "ETH",
+        "communication"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-ETH-002": {
+      "goal_id": "belief-update",
+      "topic_ids": [
+        "ETH"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-ETH-003": {
+      "goal_id": "overlooked-perspective",
+      "topic_ids": [
+        "ETH"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-ETH-004": {
+      "goal_id": "persuasion-boundary",
+      "topic_ids": [
+        "ETH",
+        "communication"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-ETH-005": {
+      "goal_id": "rule-purpose",
+      "topic_ids": [
+        "ETH"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-ETH-006": {
+      "goal_id": "collaboration-credit",
+      "topic_ids": [
+        "ETH",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-ETH-007": {
+      "goal_id": "technology-adoption",
+      "topic_ids": [
+        "ETH"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-ETH-008": {
+      "goal_id": "public-correction",
+      "topic_ids": [
+        "ETH"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-ETH-009": {
+      "goal_id": "conflict-disclosure",
+      "topic_ids": [
+        "ETH",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-ETH-010": {
+      "goal_id": "interest-bias",
+      "topic_ids": [
+        "ETH"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-ETH-011": {
+      "goal_id": "private-public",
+      "topic_ids": [
+        "ETH",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-ETH-012": {
+      "goal_id": "responsibility",
+      "topic_ids": [
+        "ETH"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-DEC-001": {
+      "goal_id": "nonnegotiable",
+      "topic_ids": [
+        "DEC",
+        "judgment-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-002": {
+      "goal_id": "comparison-axis",
+      "topic_ids": [
+        "DEC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-003": {
+      "goal_id": "option-count",
+      "topic_ids": [
+        "DEC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-004": {
+      "goal_id": "research-limit",
+      "topic_ids": [
+        "DEC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-005": {
+      "goal_id": "irreversible-check",
+      "topic_ids": [
+        "DEC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-006": {
+      "goal_id": "bounded-trial",
+      "topic_ids": [
+        "DEC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-007": {
+      "goal_id": "unresolved-variable",
+      "topic_ids": [
+        "DEC",
+        "uncertainty"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-008": {
+      "goal_id": "tie-break",
+      "topic_ids": [
+        "DEC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-009": {
+      "goal_id": "revisit-trigger",
+      "topic_ids": [
+        "DEC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-010": {
+      "goal_id": "consultation-needed",
+      "topic_ids": [
+        "DEC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-011": {
+      "goal_id": "policy-exception",
+      "topic_ids": [
+        "DEC",
+        "current-policy",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-012": {
+      "goal_id": "sunk-cost",
+      "topic_ids": [
+        "DEC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-013": {
+      "goal_id": "explanation-evidence",
+      "topic_ids": [
+        "DEC",
+        "evidence"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-014": {
+      "goal_id": "decision-deferral",
+      "topic_ids": [
+        "DEC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-015": {
+      "goal_id": "decision-record",
+      "topic_ids": [
+        "DEC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-DEC-016": {
+      "goal_id": "alternative-options",
+      "topic_ids": [
+        "DEC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-UNC-001": {
+      "goal_id": "no-assumptions",
+      "topic_ids": [
+        "UNC",
+        "uncertainty"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "learn",
+        "plan"
+      ]
+    },
+    "HZ-UNC-002": {
+      "goal_id": "source-evidence",
+      "topic_ids": [
+        "UNC",
+        "evidence"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "learn",
+        "plan"
+      ]
+    },
+    "HZ-UNC-003": {
+      "goal_id": "uncertainty-display",
+      "topic_ids": [
+        "UNC",
+        "uncertainty"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "learn",
+        "plan"
+      ]
+    },
+    "HZ-UNC-004": {
+      "goal_id": "conflicting-evidence",
+      "topic_ids": [
+        "UNC",
+        "uncertainty"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "learn",
+        "plan"
+      ]
+    },
+    "HZ-UNC-005": {
+      "goal_id": "fresh-information",
+      "topic_ids": [
+        "UNC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "learn",
+        "plan"
+      ]
+    },
+    "HZ-UNC-006": {
+      "goal_id": "expert-disagreement",
+      "topic_ids": [
+        "UNC",
+        "evidence"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "learn",
+        "plan"
+      ]
+    },
+    "HZ-UNC-007": {
+      "goal_id": "counterevidence",
+      "topic_ids": [
+        "UNC",
+        "evidence"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "learn",
+        "plan"
+      ]
+    },
+    "HZ-UNC-008": {
+      "goal_id": "numeric-limits",
+      "topic_ids": [
+        "UNC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "learn",
+        "plan"
+      ]
+    },
+    "HZ-UNC-009": {
+      "goal_id": "prediction-review",
+      "topic_ids": [
+        "UNC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "learn",
+        "plan"
+      ]
+    },
+    "HZ-UNC-010": {
+      "goal_id": "unwanted-information",
+      "topic_ids": [
+        "UNC",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "learn",
+        "plan"
+      ]
+    },
+    "HZ-UNC-011": {
+      "goal_id": "minimum-check",
+      "topic_ids": [
+        "UNC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "learn",
+        "plan"
+      ]
+    },
+    "HZ-UNC-012": {
+      "goal_id": "research-to-action",
+      "topic_ids": [
+        "UNC",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "learn",
+        "plan"
+      ]
+    },
+    "HZ-LEA-001": {
+      "goal_id": "learning-target",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-002": {
+      "goal_id": "prior-knowledge",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-003": {
+      "goal_id": "learning-example",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-004": {
+      "goal_id": "hints-boundary",
+      "topic_ids": [
+        "LEA",
+        "agency",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-005": {
+      "goal_id": "learning-check",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-006": {
+      "goal_id": "error-feedback",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-007": {
+      "goal_id": "completion-learning",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-008": {
+      "goal_id": "retained-practice",
+      "topic_ids": [
+        "LEA",
+        "learning",
+        "agency"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-009": {
+      "goal_id": "learning-chunk",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-010": {
+      "goal_id": "reference-not-memory",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-011": {
+      "goal_id": "methods-comparison",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-012": {
+      "goal_id": "poor-teaching",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-013": {
+      "goal_id": "learning-rules",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-014": {
+      "goal_id": "exploration-learning",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-015": {
+      "goal_id": "skill-freshness",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-LEA-016": {
+      "goal_id": "learning-transfer",
+      "topic_ids": [
+        "LEA",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-RES-001": {
+      "goal_id": "research-question",
+      "topic_ids": [
+        "RES",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-RES-002": {
+      "goal_id": "research-progress",
+      "topic_ids": [
+        "RES",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-RES-003": {
+      "goal_id": "research-refutation",
+      "topic_ids": [
+        "RES",
+        "evidence",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-RES-004": {
+      "goal_id": "reproducibility-record",
+      "topic_ids": [
+        "RES",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-RES-005": {
+      "goal_id": "research-continuation",
+      "topic_ids": [
+        "RES",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-RES-006": {
+      "goal_id": "research-phase",
+      "topic_ids": [
+        "RES",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-RES-007": {
+      "goal_id": "publication-check",
+      "topic_ids": [
+        "RES",
+        "research",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-RES-008": {
+      "goal_id": "collaboration-role",
+      "topic_ids": [
+        "RES",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-RES-009": {
+      "goal_id": "data-use-boundary",
+      "topic_ids": [
+        "RES",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-RES-010": {
+      "goal_id": "tentative-notes",
+      "topic_ids": [
+        "RES",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-RES-011": {
+      "goal_id": "ai-research-verification",
+      "topic_ids": [
+        "RES",
+        "evidence",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-RES-012": {
+      "goal_id": "research-support-distance",
+      "topic_ids": [
+        "RES",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "learn"
+      ]
+    },
+    "HZ-WOR-001": {
+      "goal_id": "activity-criteria",
+      "topic_ids": [
+        "WOR"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-WOR-002": {
+      "goal_id": "acceptance-check",
+      "topic_ids": [
+        "WOR",
+        "capacity"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-WOR-003": {
+      "goal_id": "bad-working-method",
+      "topic_ids": [
+        "WOR",
+        "judgment-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-WOR-004": {
+      "goal_id": "relationship-boundary",
+      "topic_ids": [
+        "WOR",
+        "relationship"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-WOR-005": {
+      "goal_id": "protected-time",
+      "topic_ids": [
+        "WOR",
+        "time-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-WOR-006": {
+      "goal_id": "quality-floor",
+      "topic_ids": [
+        "WOR"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-WOR-007": {
+      "goal_id": "retained-experience",
+      "topic_ids": [
+        "WOR",
+        "agency",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-WOR-008": {
+      "goal_id": "renegotiation",
+      "topic_ids": [
+        "WOR",
+        "capacity"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-WOR-009": {
+      "goal_id": "uncertain-capacity",
+      "topic_ids": [
+        "WOR"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-WOR-010": {
+      "goal_id": "activity-reduction",
+      "topic_ids": [
+        "WOR",
+        "capacity"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-WOR-011": {
+      "goal_id": "work-learning",
+      "topic_ids": [
+        "WOR",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-WOR-012": {
+      "goal_id": "response-timing",
+      "topic_ids": [
+        "WOR"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-WOR-013": {
+      "goal_id": "one-time-cooperation",
+      "topic_ids": [
+        "WOR",
+        "relationship"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-WOR-014": {
+      "goal_id": "feedback-format",
+      "topic_ids": [
+        "WOR"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-LIF-001": {
+      "goal_id": "protected-time",
+      "topic_ids": [
+        "LIF",
+        "time-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-LIF-002": {
+      "goal_id": "preparation",
+      "topic_ids": [
+        "LIF",
+        "preparation"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-LIF-003": {
+      "goal_id": "reduced-operation",
+      "topic_ids": [
+        "LIF",
+        "capacity"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-LIF-004": {
+      "goal_id": "rest-priority",
+      "topic_ids": [
+        "LIF",
+        "capacity"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-LIF-005": {
+      "goal_id": "lifestyle-advice",
+      "topic_ids": [
+        "LIF"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-LIF-006": {
+      "goal_id": "habit-environment",
+      "topic_ids": [
+        "LIF"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-LIF-007": {
+      "goal_id": "schedule-granularity",
+      "topic_ids": [
+        "LIF"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-LIF-008": {
+      "goal_id": "support-responsibility",
+      "topic_ids": [
+        "LIF"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-LIF-009": {
+      "goal_id": "travel-burden",
+      "topic_ids": [
+        "LIF",
+        "preparation"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-LIF-010": {
+      "goal_id": "food-condition",
+      "topic_ids": [
+        "LIF"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-LIF-011": {
+      "goal_id": "unrecorded-life",
+      "topic_ids": [
+        "LIF",
+        "recording"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-LIF-012": {
+      "goal_id": "recovery-order",
+      "topic_ids": [
+        "LIF"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-LIF-013": {
+      "goal_id": "living-environment",
+      "topic_ids": [
+        "LIF"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-LIF-014": {
+      "goal_id": "rest-priority",
+      "topic_ids": [
+        "LIF",
+        "capacity"
+      ],
+      "purposes": [
+        "self_reflection",
+        "plan"
+      ]
+    },
+    "HZ-MON-001": {
+      "goal_id": "resource-cap",
+      "topic_ids": [
+        "MON",
+        "resource-cost"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-MON-002": {
+      "goal_id": "effort-price",
+      "topic_ids": [
+        "MON",
+        "resource-cost"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-MON-003": {
+      "goal_id": "reuse-tools",
+      "topic_ids": [
+        "MON"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-MON-004": {
+      "goal_id": "recurring-payment",
+      "topic_ids": [
+        "MON",
+        "resource-cost"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-MON-005": {
+      "goal_id": "contingency-reserve",
+      "topic_ids": [
+        "MON",
+        "resource-cost",
+        "time-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-MON-006": {
+      "goal_id": "shared-resource",
+      "topic_ids": [
+        "MON"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-MON-007": {
+      "goal_id": "maintenance-burden",
+      "topic_ids": [
+        "MON",
+        "resource-cost"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-MON-008": {
+      "goal_id": "cost-value",
+      "topic_ids": [
+        "MON",
+        "resource-cost"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-MON-009": {
+      "goal_id": "ethical-provision",
+      "topic_ids": [
+        "MON"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-MON-010": {
+      "goal_id": "free-service-burden",
+      "topic_ids": [
+        "MON",
+        "resource-cost"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-MON-011": {
+      "goal_id": "discard-resource",
+      "topic_ids": [
+        "MON"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-MON-012": {
+      "goal_id": "unrecorded-life",
+      "topic_ids": [
+        "MON",
+        "recording"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "plan"
+      ]
+    },
+    "HZ-REL-001": {
+      "goal_id": "relationship-boundary",
+      "topic_ids": [
+        "REL",
+        "relationship"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-REL-002": {
+      "goal_id": "support-role",
+      "topic_ids": [
+        "REL",
+        "relationship"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-REL-003": {
+      "goal_id": "current-capacity",
+      "topic_ids": [
+        "REL",
+        "capacity"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-REL-004": {
+      "goal_id": "asking-help",
+      "topic_ids": [
+        "REL",
+        "relationship"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-REL-005": {
+      "goal_id": "contact-frequency",
+      "topic_ids": [
+        "REL",
+        "relationship"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-REL-006": {
+      "goal_id": "relationship-depth",
+      "topic_ids": [
+        "REL",
+        "relationship"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-REL-007": {
+      "goal_id": "collaboration-disagreement",
+      "topic_ids": [
+        "REL",
+        "relationship"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-REL-008": {
+      "goal_id": "fairness",
+      "topic_ids": [
+        "REL"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-REL-009": {
+      "goal_id": "limited-contact",
+      "topic_ids": [
+        "REL",
+        "relationship"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-REL-010": {
+      "goal_id": "relationship-repair",
+      "topic_ids": [
+        "REL",
+        "relationship"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-REL-011": {
+      "goal_id": "personal-events",
+      "topic_ids": [
+        "REL"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-REL-012": {
+      "goal_id": "alone-together",
+      "topic_ids": [
+        "REL",
+        "relationship"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-REL-013": {
+      "goal_id": "joint-decision",
+      "topic_ids": [
+        "REL",
+        "relationship"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-REL-014": {
+      "goal_id": "expectation-check",
+      "topic_ids": [
+        "REL",
+        "relationship"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "plan"
+      ]
+    },
+    "HZ-COM-001": {
+      "goal_id": "writing-voice",
+      "topic_ids": [
+        "COM",
+        "communication"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-COM-002": {
+      "goal_id": "unfamiliar-distance",
+      "topic_ids": [
+        "COM",
+        "communication"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-COM-003": {
+      "goal_id": "familiar-tone",
+      "topic_ids": [
+        "COM",
+        "communication"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-COM-004": {
+      "goal_id": "promise-check",
+      "topic_ids": [
+        "COM"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-COM-005": {
+      "goal_id": "private-public",
+      "topic_ids": [
+        "COM",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-COM-006": {
+      "goal_id": "apology-focus",
+      "topic_ids": [
+        "COM",
+        "communication"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-COM-007": {
+      "goal_id": "self-presentation",
+      "topic_ids": [
+        "COM",
+        "communication"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-COM-008": {
+      "goal_id": "broad-audience",
+      "topic_ids": [
+        "COM",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-COM-009": {
+      "goal_id": "partial-reply",
+      "topic_ids": [
+        "COM"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-COM-010": {
+      "goal_id": "disagreement-tone",
+      "topic_ids": [
+        "COM",
+        "communication"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-COM-011": {
+      "goal_id": "humor",
+      "topic_ids": [
+        "COM",
+        "communication"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-COM-012": {
+      "goal_id": "translation-voice",
+      "topic_ids": [
+        "COM",
+        "communication"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-COM-013": {
+      "goal_id": "review-format",
+      "topic_ids": [
+        "COM",
+        "review"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-COM-014": {
+      "goal_id": "response-timing",
+      "topic_ids": [
+        "COM"
+      ],
+      "purposes": [
+        "self_reflection",
+        "draft_reply"
+      ]
+    },
+    "HZ-CRE-001": {
+      "goal_id": "creative-experience",
+      "topic_ids": [
+        "CRE",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "create"
+      ]
+    },
+    "HZ-CRE-002": {
+      "goal_id": "retained-experience",
+      "topic_ids": [
+        "CRE",
+        "agency",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "create"
+      ]
+    },
+    "HZ-CRE-003": {
+      "goal_id": "creative-quality",
+      "topic_ids": [
+        "CRE",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "create"
+      ]
+    },
+    "HZ-CRE-004": {
+      "goal_id": "reference-element",
+      "topic_ids": [
+        "CRE",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "create"
+      ]
+    },
+    "HZ-CRE-005": {
+      "goal_id": "creative-range",
+      "topic_ids": [
+        "CRE",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "create"
+      ]
+    },
+    "HZ-CRE-006": {
+      "goal_id": "prototype-detail",
+      "topic_ids": [
+        "CRE",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "create"
+      ]
+    },
+    "HZ-CRE-007": {
+      "goal_id": "protected-edit",
+      "topic_ids": [
+        "CRE",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "create"
+      ]
+    },
+    "HZ-CRE-008": {
+      "goal_id": "unexpected-expression",
+      "topic_ids": [
+        "CRE",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "create"
+      ]
+    },
+    "HZ-CRE-009": {
+      "goal_id": "publication-check",
+      "topic_ids": [
+        "CRE",
+        "creative-work",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "create"
+      ]
+    },
+    "HZ-CRE-010": {
+      "goal_id": "collaboration-credit",
+      "topic_ids": [
+        "CRE",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "create"
+      ]
+    },
+    "HZ-CRE-011": {
+      "goal_id": "process-enjoyment",
+      "topic_ids": [
+        "CRE",
+        "agency",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "create"
+      ]
+    },
+    "HZ-CRE-012": {
+      "goal_id": "noninherited-style",
+      "topic_ids": [
+        "CRE",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "create"
+      ]
+    },
+    "HZ-FUN-001": {
+      "goal_id": "desired-enjoyment",
+      "topic_ids": [
+        "FUN",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-FUN-002": {
+      "goal_id": "positive-experience",
+      "topic_ids": [
+        "FUN",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-FUN-003": {
+      "goal_id": "negative-experience",
+      "topic_ids": [
+        "FUN",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-FUN-004": {
+      "goal_id": "avoided-stimuli",
+      "topic_ids": [
+        "FUN",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-FUN-005": {
+      "goal_id": "unwanted-information",
+      "topic_ids": [
+        "FUN",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-FUN-006": {
+      "goal_id": "enjoyable-challenge",
+      "topic_ids": [
+        "FUN",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-FUN-007": {
+      "goal_id": "new-or-familiar",
+      "topic_ids": [
+        "FUN",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-FUN-008": {
+      "goal_id": "interruptible-experience",
+      "topic_ids": [
+        "FUN",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-FUN-009": {
+      "goal_id": "solo-or-shared",
+      "topic_ids": [
+        "FUN",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-FUN-010": {
+      "goal_id": "policy-exception",
+      "topic_ids": [
+        "FUN",
+        "enjoyment",
+        "current-policy"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-FUN-011": {
+      "goal_id": "leisure-place",
+      "topic_ids": [
+        "FUN",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-FUN-012": {
+      "goal_id": "music-element",
+      "topic_ids": [
+        "FUN",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-FUN-013": {
+      "goal_id": "story-aftertaste",
+      "topic_ids": [
+        "FUN",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-FUN-014": {
+      "goal_id": "retired-policy",
+      "topic_ids": [
+        "FUN",
+        "current-policy",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "compare"
+      ]
+    },
+    "HZ-AES-001": {
+      "goal_id": "aesthetic-elements",
+      "topic_ids": [
+        "AES"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-AES-002": {
+      "goal_id": "affected-expression",
+      "topic_ids": [
+        "AES"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-AES-003": {
+      "goal_id": "readability-atmosphere",
+      "topic_ids": [
+        "AES"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-AES-004": {
+      "goal_id": "color-context",
+      "topic_ids": [
+        "AES"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-AES-005": {
+      "goal_id": "irregularity",
+      "topic_ids": [
+        "AES"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-AES-006": {
+      "goal_id": "typography",
+      "topic_ids": [
+        "AES"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-AES-007": {
+      "goal_id": "unwanted-appearance",
+      "topic_ids": [
+        "AES"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-AES-008": {
+      "goal_id": "aging-character",
+      "topic_ids": [
+        "AES"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-AES-009": {
+      "goal_id": "visual-comparison",
+      "topic_ids": [
+        "AES",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-AES-010": {
+      "goal_id": "tactile-conditions",
+      "topic_ids": [
+        "AES"
+      ],
+      "purposes": [
+        "self_reflection",
+        "compare",
+        "create"
+      ]
+    },
+    "HZ-AID-001": {
+      "goal_id": "retained-experience",
+      "topic_ids": [
+        "AID",
+        "agency",
+        "creative-work"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-002": {
+      "goal_id": "prohibited-ai-draft",
+      "topic_ids": [
+        "AID",
+        "judgment-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-003": {
+      "goal_id": "process-visibility",
+      "topic_ids": [
+        "AID"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-004": {
+      "goal_id": "progress-report",
+      "topic_ids": [
+        "AID"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-005": {
+      "goal_id": "no-assumptions",
+      "topic_ids": [
+        "AID",
+        "uncertainty"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-006": {
+      "goal_id": "bounded-trial",
+      "topic_ids": [
+        "AID"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-007": {
+      "goal_id": "delegation-evidence",
+      "topic_ids": [
+        "AID"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-008": {
+      "goal_id": "failure-stop",
+      "topic_ids": [
+        "AID"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-009": {
+      "goal_id": "counterevidence",
+      "topic_ids": [
+        "AID",
+        "evidence"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-010": {
+      "goal_id": "proactive-proposal",
+      "topic_ids": [
+        "AID"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-011": {
+      "goal_id": "latency-cost",
+      "topic_ids": [
+        "AID",
+        "resource-cost"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-012": {
+      "goal_id": "explanation-evidence",
+      "topic_ids": [
+        "AID",
+        "evidence"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-013": {
+      "goal_id": "retained-practice",
+      "topic_ids": [
+        "AID",
+        "agency",
+        "learning"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-014": {
+      "goal_id": "stop-control",
+      "topic_ids": [
+        "AID",
+        "question-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-015": {
+      "goal_id": "provider-change",
+      "topic_ids": [
+        "AID",
+        "local-processing"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-AID-016": {
+      "goal_id": "constraint-explanation",
+      "topic_ids": [
+        "AID"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-001": {
+      "goal_id": "private-public",
+      "topic_ids": [
+        "PRI",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-002": {
+      "goal_id": "local-only",
+      "topic_ids": [
+        "PRI",
+        "local-processing"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-003": {
+      "goal_id": "purpose-reuse",
+      "topic_ids": [
+        "PRI"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-004": {
+      "goal_id": "audience-scope",
+      "topic_ids": [
+        "PRI",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-005": {
+      "goal_id": "broad-audience",
+      "topic_ids": [
+        "PRI",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-006": {
+      "goal_id": "third-party-data",
+      "topic_ids": [
+        "PRI",
+        "recording"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-007": {
+      "goal_id": "public-linking",
+      "topic_ids": [
+        "PRI",
+        "recording"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-008": {
+      "goal_id": "sharing-granularity",
+      "topic_ids": [
+        "PRI",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-009": {
+      "goal_id": "exact-quotation",
+      "topic_ids": [
+        "PRI",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-010": {
+      "goal_id": "combined-disclosure",
+      "topic_ids": [
+        "PRI",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-011": {
+      "goal_id": "anonymous-private",
+      "topic_ids": [
+        "PRI",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-012": {
+      "goal_id": "retired-disclosure",
+      "topic_ids": [
+        "PRI",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-013": {
+      "goal_id": "new-purpose-consent",
+      "topic_ids": [
+        "PRI",
+        "disclosure"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-014": {
+      "goal_id": "evaluation-data",
+      "topic_ids": [
+        "PRI",
+        "recording"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-015": {
+      "goal_id": "refused-topic",
+      "topic_ids": [
+        "PRI",
+        "question-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-PRI-016": {
+      "goal_id": "private-speech",
+      "topic_ids": [
+        "PRI"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-001": {
+      "goal_id": "correction-scope",
+      "topic_ids": [
+        "CHG"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-002": {
+      "goal_id": "review-format",
+      "topic_ids": [
+        "CHG",
+        "review"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-003": {
+      "goal_id": "understanding-check",
+      "topic_ids": [
+        "CHG",
+        "review"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-004": {
+      "goal_id": "temporary-opinion",
+      "topic_ids": [
+        "CHG"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-005": {
+      "goal_id": "historical-correction",
+      "topic_ids": [
+        "CHG",
+        "current-policy"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-006": {
+      "goal_id": "retired-policy",
+      "topic_ids": [
+        "CHG",
+        "current-policy",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-007": {
+      "goal_id": "policy-exception",
+      "topic_ids": [
+        "CHG",
+        "current-policy",
+        "enjoyment"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-008": {
+      "goal_id": "paused-record",
+      "topic_ids": [
+        "CHG",
+        "current-policy"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-009": {
+      "goal_id": "delete-derivatives",
+      "topic_ids": [
+        "CHG"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-010": {
+      "goal_id": "unconfirmed-use",
+      "topic_ids": [
+        "CHG"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-011": {
+      "goal_id": "correction-effects",
+      "topic_ids": [
+        "CHG"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-012": {
+      "goal_id": "review-trigger",
+      "topic_ids": [
+        "CHG"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-013": {
+      "goal_id": "unsettled-thought",
+      "topic_ids": [
+        "CHG",
+        "value-conflict"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-CHG-014": {
+      "goal_id": "mistaken-adoption",
+      "topic_ids": [
+        "CHG",
+        "review"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-001": {
+      "goal_id": "current-priority",
+      "topic_ids": [
+        "NOW"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-002": {
+      "goal_id": "current-capacity",
+      "topic_ids": [
+        "NOW",
+        "capacity"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-003": {
+      "goal_id": "current-deadline",
+      "topic_ids": [
+        "NOW"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-004": {
+      "goal_id": "protected-time",
+      "topic_ids": [
+        "NOW",
+        "time-boundary"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-005": {
+      "goal_id": "current-environment",
+      "topic_ids": [
+        "NOW"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-006": {
+      "goal_id": "current-role",
+      "topic_ids": [
+        "NOW"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-007": {
+      "goal_id": "settled-decision",
+      "topic_ids": [
+        "NOW"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-008": {
+      "goal_id": "unresolved-variable",
+      "topic_ids": [
+        "NOW",
+        "uncertainty"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-009": {
+      "goal_id": "reduced-operation",
+      "topic_ids": [
+        "NOW",
+        "capacity"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-010": {
+      "goal_id": "preparation",
+      "topic_ids": [
+        "NOW",
+        "preparation"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-011": {
+      "goal_id": "tried-option",
+      "topic_ids": [
+        "NOW"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-012": {
+      "goal_id": "current-source",
+      "topic_ids": [
+        "NOW"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-013": {
+      "goal_id": "deferred-option",
+      "topic_ids": [
+        "NOW"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-NOW-014": {
+      "goal_id": "condition-expiry",
+      "topic_ids": [
+        "NOW"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-ACC-001": {
+      "goal_id": "accessible-control",
+      "topic_ids": [
+        "ACC",
+        "review"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-ACC-002": {
+      "goal_id": "language",
+      "topic_ids": [
+        "ACC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-ACC-003": {
+      "goal_id": "technical-vocabulary",
+      "topic_ids": [
+        "ACC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-ACC-004": {
+      "goal_id": "review-format",
+      "topic_ids": [
+        "ACC",
+        "review"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-ACC-005": {
+      "goal_id": "speech-submission",
+      "topic_ids": [
+        "ACC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-ACC-006": {
+      "goal_id": "private-speech",
+      "topic_ids": [
+        "ACC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-ACC-007": {
+      "goal_id": "translation-voice",
+      "topic_ids": [
+        "ACC",
+        "communication"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-ACC-008": {
+      "goal_id": "time-format",
+      "topic_ids": [
+        "ACC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-ACC-009": {
+      "goal_id": "address-form",
+      "topic_ids": [
+        "ACC"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-ACC-010": {
+      "goal_id": "local-convention",
+      "topic_ids": [
+        "ACC",
+        "communication"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-DAT-001": {
+      "goal_id": "data-use-boundary",
+      "topic_ids": [
+        "DAT",
+        "research"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-DAT-002": {
+      "goal_id": "document-speaker",
+      "topic_ids": [
+        "DAT"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-DAT-003": {
+      "goal_id": "document-time",
+      "topic_ids": [
+        "DAT"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-DAT-004": {
+      "goal_id": "audio-retention",
+      "topic_ids": [
+        "DAT",
+        "recording"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-DAT-005": {
+      "goal_id": "source-retention",
+      "topic_ids": [
+        "DAT",
+        "recording"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-DAT-006": {
+      "goal_id": "export-format",
+      "topic_ids": [
+        "DAT"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-DAT-007": {
+      "goal_id": "backup-scope",
+      "topic_ids": [
+        "DAT"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-DAT-008": {
+      "goal_id": "key-recovery",
+      "topic_ids": [
+        "DAT"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-DAT-009": {
+      "goal_id": "end-record",
+      "topic_ids": [
+        "DAT",
+        "recording"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    },
+    "HZ-DAT-010": {
+      "goal_id": "export-correction",
+      "topic_ids": [
+        "DAT"
+      ],
+      "purposes": [
+        "self_reflection",
+        "conversation",
+        "draft_reply",
+        "compare",
+        "learn",
+        "create",
+        "plan"
+      ]
+    }
+  }
+}

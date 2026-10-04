@@ -1,6 +1,6 @@
 {
   "name": "hitotsuzutsu",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -14,7 +14,7 @@
     "jose": "6.1.0",
     "proper-lockfile": "4.1.2"
   },
-  "description": "One question at a time: a local personal-context interview prototype.",
+  "description": "A local encrypted personal-context journal with optional one-question conversations.",
   "license": "MIT",
   "engines": {
     "node": ">=26"

@@ -28,3 +28,5 @@ test('public check includes untracked and force-tracked ignored files but does n
     assert(checkPublic(root).findings.some(x => x.path === 'new.txt' && x.rule === 'provider-secret'));
   } finally { rmSync(root, { recursive: true, force: true }); }
 });
+
+test('deleted tracked files do not crash the working-tree scan',()=>{const root=mkdtempSync(path.join(tmpdir(),'public-delete-'));try{execFileSync('git',['init','--quiet',root]);writeFileSync(path.join(root,'old.txt'),'safe');execFileSync('git',['-C',root,'add','old.txt']);rmSync(path.join(root,'old.txt'));assert.deepEqual(checkPublic(root),{files:0,findings:[]});}finally{rmSync(root,{recursive:true,force:true})}});

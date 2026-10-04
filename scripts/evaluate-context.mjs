@@ -1,0 +1,12 @@
+// Aggregate user-run A/B/C trials; no model calls and no fabricated timings/costs.
+import {readFile} from 'node:fs/promises';
+import {pathToFileURL} from 'node:url';
+export function summarize(rows){
+ if(!Array.isArray(rows)||rows.length>10000)throw Error('invalid_rows');
+ const groups={A:[],B:[],C:[]};
+ for(const r of rows){if(!r||!Object.hasOwn(groups,r.condition)||typeof r.success!=='boolean')throw Error('invalid_trial');for(const k of ['explanationSeconds','editingSeconds','confirmationSeconds','waitingSeconds','disclosureErrors','correctionCount'])if(!Number.isFinite(r[k])||r[k]<0)throw Error('missing_measurement:'+k);if(r.cost!==null&&(!Number.isFinite(r.cost)||r.cost<0||typeof r.currency!=='string'||!/^[A-Z]{3}$/.test(r.currency)))throw Error('invalid_cost');groups[r.condition].push(r)}
+ const result={schema:'hitotsuzutsu.trial-summary/1',conditions:{},notes:['Failed trials remain in the aggregate.','Unknown cost stays null.','Active and waiting time are separate.']};
+ for(const [condition,data] of Object.entries(groups)){const avg=k=>data.length?data.reduce((n,r)=>n+r[k],0)/data.length:null;const costKnown=data.length>0&&data.every(r=>r.cost!==null)&&new Set(data.map(r=>r.currency)).size===1;result.conditions[condition]={trials:data.length,successes:data.filter(r=>r.success).length,failures:data.filter(r=>!r.success).length,meanExplanationSeconds:avg('explanationSeconds'),meanEditingSeconds:avg('editingSeconds'),meanConfirmationSeconds:avg('confirmationSeconds'),meanActiveSeconds:data.length?avg('explanationSeconds')+avg('editingSeconds')+avg('confirmationSeconds'):null,meanWaitingSeconds:avg('waitingSeconds'),totalDisclosureErrors:data.reduce((n,r)=>n+r.disclosureErrors,0),meanCorrectionCount:avg('correctionCount'),totalCost:costKnown?data.reduce((n,r)=>n+r.cost,0):null,currency:costKnown?data[0].currency:null};}
+ return result;
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){try{const file=process.argv[2];if(!file)throw Error('usage: node scripts/evaluate-context.mjs trials.jsonl');const data=await readFile(file,'utf8');if(Buffer.byteLength(data)>8*1024*1024)throw Error('input_limit');console.log(JSON.stringify(summarize(data.split('\n').filter(x=>x.trim()).map(x=>JSON.parse(x))),null,2))}catch(e){console.error(e.message==='input_limit'||e.message.startsWith('usage:')?e.message:'Invalid trial input; see docs/ACCEPTANCE.md.');process.exitCode=1}}
